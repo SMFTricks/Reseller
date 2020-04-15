@@ -2,7 +2,7 @@
     <img src="https://smftricks.com/logos/logo.png">
  </p>
   <p align="center">
-    <img src="https://i.imgur.com/9nONUnH.png">
+    <img src="https://custom.simplemachines.org/themes/index.php?action=download;lemma=2806;id=18483;image">
  </p>
  
  ## Reseller
