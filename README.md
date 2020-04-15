@@ -9,7 +9,7 @@
 <img src="https://img.shields.io/badge/License-MPL 2.0-a05a3f?style=flat-square"> <img src="https://img.shields.io/badge/SMF-2.0-996ee1?style=flat-square">
 
 * Developed by [Daniiel](https://github.com/dmarquez9)
-* Designed by: [Brian Casillas](https://www.simplemachines.org/community/index.php?action=profile;u=404087)
+* Designed by [Brian Casillas](https://www.simplemachines.org/community/index.php?action=profile;u=404087)
 
 ## Features
 - Responsive layout
