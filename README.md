@@ -1,5 +1,7 @@
  <p align="center">
     <img src="https://smftricks.com/logos/logo.png">
+ </p>
+  <p align="center">
     <img src="https://i.imgur.com/9nONUnH.png">
  </p>
  
