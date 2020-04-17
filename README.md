@@ -22,7 +22,7 @@
 * Reseller can be installed on SMF 2.0.x
 
 ## How to install
-* You can install Reseller through under Themes and Layout in your forum administration.
+* You can install Reseller under Themes and Layout in your forum administration.
 
 ## Demo Online
 You can find a demo for this theme on SMF Tricks: [Demo](http://demo.smftricks.com/index.php?theme=50)
