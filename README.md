@@ -19,7 +19,7 @@
 - Logo URL
 
 ## Requirements
-* Reseller be installed on SMF 2.0.x
+* Reseller can be installed on SMF 2.0.x
 
 ## How to install
 * You can install Reseller through under Themes and Layout in your forum administration.
