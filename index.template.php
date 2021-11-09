@@ -100,7 +100,7 @@ function template_html_above()
 
 	// Here comes the JavaScript bits!
 	echo '
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
 	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
