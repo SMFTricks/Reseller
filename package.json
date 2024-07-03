@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "bootstrap-css": "copy-and-watch  node_modules/bootstrap/dist/css/bootstrap.min.css css/custom",
+    "bootstrap-js": "copy-and-watch  node_modules/bootstrap/dist/js/bootstrap.bundle.min.js scripts/custom",
+    "animate": "copy-and-watch  node_modules/animate.css/animate.min.css css/custom",
+    "jqueryui": "copy-and-watch  node_modules/jquery-ui/dist/jquery-ui.min.js scripts/custom",
+	"fontawesome-css": "copy-and-watch  node_modules/@fortawesome/fontawesome-free/css/all.min.css css/custom",
+	"fontawesome-fonts": "copy-and-watch  node_modules/@fortawesome/fontawesome-free/webfonts/* css/webfonts",
+    "build": "npm run bootstrap-css && npm run bootstrap-js && npm run animate"
+  },
+  "author": "SMF Tricks",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.2",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.3.3",
+    "copy-and-watch": "^0.1.8",
+    "jquery-ui": "^1.13.2"
+  }
+}

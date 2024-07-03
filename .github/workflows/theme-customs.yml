@@ -1,0 +1,72 @@
+name: Sync Theme Customs
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+    inputs:
+      main_repo_branch:
+        description: 'Theme Customs'
+        default: 'for2.1'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Checkout current repository
+        uses: actions/checkout@v2
+    
+      - name: List files in the environment
+        run: |
+          ls -la $GITHUB_WORKSPACE
+
+      - name: Create temporary directory
+        run: |
+          mkdir temp_clone
+
+      - name: Clone main-repo
+        uses: actions/checkout@v2
+        with:
+          repository: SMFTricks/Theme-Customs
+          ref: ${{ github.event.inputs.main_repo_branch }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: temp_clone
+
+      - name: Copy main-repo contents to new directory
+        run: |
+          rsync -av --exclude='.git' --exclude=".github" --exclude="crowdin.yml" --exclude="README.md" --exclude='.gitignore' --delete-before --ignore-times temp_clone/ $GITHUB_WORKSPACE/_theme-customs
+
+      - name: Verify GitHub Workspace Contents
+        run: ls -la $GITHUB_WORKSPACE
+
+      - name: Clean up temporary directory
+        run: |
+            rm -rf temp_clone
+            
+      - name: Move contents to root
+        run: |
+          rsync -av --remove-source-files $GITHUB_WORKSPACE/_theme-customs/ $GITHUB_WORKSPACE/
+          rm -r $GITHUB_WORKSPACE/_theme-customs
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "DiegoAndresCortes"
+          git config --global user.email "diegoandres_cortes@outlook.com"
+          
+      - name: Add changes to Git staging area
+        run: |
+          git status
+
+      - name: Add changes to Git staging area
+        run: |
+          git add .
+
+      - name: Commit changes
+        run: |
+          git commit -m "Update Theme-Customs" -m "Signed-off-by: Diego Andrés <diegoandres_cortes@outlook.com>" || true
+
+      - name: Push changes to origin
+        run: |
+          git push origin HEAD

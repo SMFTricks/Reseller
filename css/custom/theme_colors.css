@@ -1,0 +1,117 @@
+:root {
+	/* Toggle */
+	--toggle-bg:                                      #f7f7f7 url(../../images/icons/toggle.png) no-repeat 0 0 / var(--toggle-height);
+	--toggle-bg_hover:                                var(--primary-color-100) url(../../images/icons/toggle.png) no-repeat 0 0 / var(--toggle-height);
+
+	/** Edits **/
+
+	/** Custom Theme **/
+	--st-avatar-size:                                 65px;
+	--st-carousel-height:                             350px;
+
+	/** Bootstrap Main Nav **/
+	--st-nav-bg:                                      var(--primary-color-700);
+	--st-nav-border-color:                            hsl(var(--primary-color-hue), 16%, 81%);
+	--st-nav-border-radius:                           0;
+	--st-nav-border-style:                            solid;
+	--st-nav-border-width:                            1px;
+
+	/** Bootstrap Main Nav Links **/
+	--st-nav-a1-bg:                                   transparent;
+	--st-nav-a1-bg_active:                            #fff;
+	--st-nav-a1-bg_active_focus:                      var(--st-nav-a1-bg_active);
+	--st-nav-a1-bg_active_hover:                      var(--st-nav-a1-bg_active);
+	--st-nav-a1-bg_focus:                             var(--st-nav-a1-bg_hover);
+	--st-nav-a1-bg_hover:                             #fff;
+	--st-nav-a1-border-color:                         transparent;
+	--st-nav-a1-border-color_active:                  var(--st-nav-a1-border-color_hover);
+	--st_nav-a1-border-color_focus:                   var(--st-nav-a1-border-color_hover);
+	--st-nav-a1-border-color_hover:                   transparent;
+	--st-nav-a1-border-radius:                        .25em;
+	--st-nav-a1-border-style:                         solid;
+	--st-nav-a1-border-width:                         0;
+	--st-nav-a1-border-width_active:                  0;
+	--st-nav-a1-border-width_focus:                   0;
+	--st-nav-a1-border-width_hover:                   0;
+	--st-nav-a1-box-shadow:                           none;
+	--st-nav-a1-box-shadow_active:                    none;
+	--st-nav-a1-box-shadow_focus:                     none;
+	--st-nav-a1-box-shadow_hover:                     none;
+	--st-nav-a1-color:                                #fff;
+	--st-nav-a1-color_active:                         var(--primary-color-800);
+	--st-nav-a1-color_active_focus:                   var(--st-nav-a1-color_active);
+	--st-nav-a1-color_active_hover:                   var(--st-nav-a1-color_active);
+	--st-nav-a1-color_focus:                          var(--st-nav-a1-color_hover);
+	--st-nav-a1-color_hover:                          #252525;
+	--st-nav-a1-font-family:                          inherit;
+	--st-nav-a1-font-size:                            .75em;
+	--st-nav-a1-font-weight:                          400;
+	--st-nav-a1-font-weight_active:                   700;
+	--st-nav-a1-font-weight_focus:                    400;
+	--st-nav-a1-font-weight_hover:                    400;
+	--st-nav-a1-height:                               2.75em;
+	--st-nav-a1-outline:                              auto;
+	--st-nav-a1-outline-offset:                       0;
+	--st-nav-a1-text-decoration:                      none;
+	--st-nav-a1-text-decoration_active:               none;
+	--st-nav-a1-text-decoration_focus:                none;
+	--st-nav-a1-text-decoration_hover:                none;
+	--st-nav-a1-text-shadow:                          none;
+	--st-nav-a1-text-shadow_active:                   none;
+	--st-nav-a1-text-shadow_focus:                    none;
+	--st-nav-a1-text-shadow_hover:                    none;
+
+	/** Bootstrap Main Nav Dropdown **/
+	--st-nav-dropdown-bg:                             var(--st-nav-a1-bg_hover);
+	--st-nav-dropdown-border-color:                   transparent;
+	--st-nav-dropdown-border-radius:                  .25em;
+	--st-nav-dropdown-border-style:                   solid;
+	--st-nav-dropdown-border-width:                   0;
+	--st-nav-dropdown-box-shadow:                     3px 3px 4px rgba(0, 0, 0, 0.3);
+	--st-nav-dropdown-width:                          15em;
+
+	/** Bootstrap Main Nav Dropdown Links **/
+	--st-nav-an-bg:                                   transparent;
+	--st-nav-an-bg_active:                            var(--st-nav-an-bg_hover);
+	--st-nav-an-bg_active_focus:                      var(--st-nav-an-bg_active);
+	--st-nav-an-bg_active_hover:                      var(--st-nav-an-bg_active);
+	--st-nav-an-bg_focus:                             var(--st-nav-an-bg_hover);
+	--st-nav-an-bg_hover:                             hsl(var(--primary-color-hue), 36%, 91%);
+	--st-nav-an-border-color:                         transparent;
+	--st-nav-an-border-color_active:                  var(--st-nav-an-border-color_hover);
+	--st-nav-an-border-color_focus:                   var(--st-nav-an-border-color_hover);
+	--st-nav-an-border-color_hover:                   transparent;
+	--st-nav-an-border-radius:                        .25em;
+	--st-nav-an-border-style:                         solid;
+	--st-nav-an-border-width:                         0;
+	--st-nav-an-border-width_active:                  0;
+	--st-nav-an-border-width_focus:                   0;
+	--st-nav-an-border-width_hover:                   0;
+	--st-nav-an-box-shadow:                           none;
+	--st-nav-an-box-shadow_active:                    none;
+	--st-nav-an-box-shadow_focus:                     none;
+	--st-nav-an-box-shadow_hover:                     none;
+	--st-nav-an-color:                                #2b2b2b;
+	--st-nav-an-color_active:                         var(--primary-color-900);
+	--st-nav-an-color_active_focus:                   var(--st-nav-an-color_active);
+	--st-nav-an-color_active_hover:                   var(--st-nav-an-color_active);
+	--st-nav-an-color_focus:                          var(--st-nav-an-color_hover);
+	--st-nav-an-color_hover:                          #252525;
+	--st-nav-an-font-family:                          inherit;
+	--st-nav-an-font-size:                            .75em;
+	--st-nav-an-font-weight:                          400;
+	--st-nav-an-font-weight_active:                   700;
+	--st-nav-an-font-weight_focus:                    400;
+	--st-nav-an-font-weight_hover:                    400;
+	--st-nav-an-height:                               2.5em;
+	--st-nav-an-outline:                              auto;
+	--st-nav-an-outline-offset:                       0;
+	--st-nav-an-text-decoration:                      none;
+	--st-nav-an-text-decoration_active:               none;
+	--st-nav-an-text-decoration_focus:                none;
+	--st-nav-an-text-decoration_hover:                none;
+	--st-nav-an-text-shadow:                          none;
+	--st-nav-an-text-shadow_active:                   none;
+	--st-nav-an-text-shadow_focus:                    none;
+	--st-nav-an-text-shadow_hover:                    none;
+}

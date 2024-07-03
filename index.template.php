@@ -3,456 +3,671 @@
  * Simple Machines Forum (SMF)
  *
  * @package SMF
- * @author Simple Machines
- * @copyright 2011 Simple Machines
- * @license http://www.simplemachines.org/about/smf/license.php BSD
+ * @author Simple Machines https://www.simplemachines.org
+ * @copyright 2024 Simple Machines and individual contributors
+ * @license https://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.19
+ * @version 2.1.4
  */
 
-/*	This template is, perhaps, the most important template in the theme. It
-	contains the main template layer that displays the header and footer of
-	the forum, namely with main_above and main_below. It also contains the
-	menu sub template, which appropriately displays the menu; the init sub
-	template, which is there to set the theme up; (init can be missing.) and
-	the linktree sub template, which sorts out the link tree.
-
-	The init sub template should load any data and set any hardcoded options.
-
-	The main_above sub template is what is shown above the main content, and
-	should contain anything that should be shown up there.
-
-	The main_below sub template, conversely, is shown after the main content.
-	It should probably contain the copyright statement and some other things.
-
-	The linktree sub template should display the link tree, using the data
-	in the $context['linktree'] variable.
-
-	The menu sub template should display all the relevant buttons the user
-	wants and or needs.
-
-	For more information on the templating system, please see the site at:
-	http://www.simplemachines.org/
-*/
-
-// Initialize the template... mainly little settings.
-function template_init()
+/**
+ * Initialize Theme Customs
+ */
+function template_init() : void
 {
-	global $context, $settings, $options, $txt;
-
-	/* Use images from default theme when using templates from the default theme?
-		if this is 'always', images from the default theme will be used.
-		if this is 'defaults', images from the default theme will only be used with default templates.
-		if this is 'never' or isn't set at all, images from the default theme will not be used. */
-	$settings['use_default_images'] = 'never';
-
-	/* What document type definition is being used? (for font size and other issues.)
-		'xhtml' for an XHTML 1.0 document type definition.
-		'html' for an HTML 4.01 document type definition. */
-	$settings['doctype'] = 'xhtml';
-
-	/* The version this template/theme is for.
-		This should probably be the version of SMF it was created for. */
-	$settings['theme_version'] = '2.0';
-
-	/* Set a setting that tells the theme that it can render the tabs. */
-	$settings['use_tabs'] = true;
-
-	/* Use plain buttons - as opposed to text buttons? */
-	$settings['use_buttons'] = true;
-
-	/* Show sticky and lock status separate from topic icons? */
-	$settings['separate_sticky_lock'] = true;
-
-	/* Does this theme use the strict doctype? */
-	$settings['strict_doctype'] = false;
-
-	/* Does this theme use post previews on the message index? */
-	$settings['message_index_preview'] = false;
-
-	/* Set the following variable to true if this theme requires the optional theme strings file to be loaded. */
-	$settings['require_theme_strings'] = true;
+	// Initialize theme customs
+	template_customs_init();
 }
 
-// The main sub template above the content.
+/**
+ * The main sub template above the content.
+ */
 function template_html_above()
 {
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+	global $context, $scripturl, $txt, $modSettings, $settings;
 
-	// Show right to left and the character set for ease of translating.
+	// Show right to left, the language code, and the character set for ease of translating.
 	echo '<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"', $context['right_to_left'] ? ' dir="rtl"' : '', '>
+<html', $context['right_to_left'] ? ' dir="rtl"' : '', !empty($txt['lang_locale']) ? ' lang="' . str_replace("_", "-", substr($txt['lang_locale'], 0, strcspn($txt['lang_locale'], "."))) . '"' : '', $settings['themecustoms_html_attributes_data'] ?? '', '>
 <head>
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/reseller.css" />
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index', $context['theme_variant'], '.css?fin20" />';
+	<meta charset="', $context['character_set'], '">';
 
-	// Some browsers need an extra stylesheet due to bugs/compatibility issues.
-	foreach (array('ie7', 'ie6', 'webkit') as $cssfix)
-		if ($context['browser']['is_' . $cssfix])
-			echo '
-	<link rel="stylesheet" type="text/css" href="', $settings['default_theme_url'], '/css/', $cssfix, '.css" />';
+	template_css();
+	template_javascript();
 
-	// RTL languages require an additional stylesheet.
-	if ($context['right_to_left'])
+	echo '
+	<title>', $context['page_title_html_safe'], '</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">';
+
+	// Content related meta tags, like description, keywords, Open Graph stuff, etc...
+	foreach ($context['meta_tags'] as $meta_tag)
+	{
 		echo '
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/rtl.css" />';
+	<meta';
 
-	// Here comes the JavaScript bits!
-	echo '
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
-	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/bootstrap.min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$("input[type=button]").attr("class", "btn btn-default btn-sm");
-		$(".button_submit").attr("class", "btn btn-primary btn-sm");
-		$("#advanced_search input[type=\'text\'], #search_term_input input[type=\'text\']").removeAttr("size"); 
-		$(".table_grid").attr("class", "table table-striped");
-		$("img[alt=\'', $txt['new'], '\'], img.new_posts").replaceWith("<span class=\'label label-warning\'>', $txt['new'], '</span>");
-		$("#profile_success").removeAttr("id").removeClass("windowbg").addClass("alert alert-success"); 
-		$("#profile_error").removeAttr("id").removeClass("windowbg").addClass("alert alert-danger"); 
-	});
-	</script>
-	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js?fin20"></script>
-	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/theme.js?fin20"></script>
-	<script type="text/javascript"><!-- // --><![CDATA[
-		var smf_theme_url = "', $settings['theme_url'], '";
-		var smf_default_theme_url = "', $settings['default_theme_url'], '";
-		var smf_images_url = "', $settings['images_url'], '";
-		var smf_scripturl = "', $scripturl, '";
-		var smf_iso_case_folding = ', $context['server']['iso_case_folding'] ? 'true' : 'false', ';
-		var smf_charset = "', $context['character_set'], '";', $context['show_pm_popup'] ? '
-		var fPmPopup = function ()
-		{
-			if (confirm("' . $txt['show_personal_messages'] . '"))
-				window.open(smf_prepareScriptUrl(smf_scripturl) + "action=pm");
-		}
-		addLoadEvent(fPmPopup);' : '', '
-		var ajax_notification_text = "', $txt['ajax_in_progress'], '";
-		var ajax_notification_cancel_text = "', $txt['modify_cancel'], '";
-	// ]]></script>';
+		foreach ($meta_tag as $meta_key => $meta_value)
+			echo ' ', $meta_key, '="', $meta_value, '"';
 
+		echo '>';
+	}
+
+	// Theme color (mobile and tabs)
 	echo '
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
-	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
-	<meta name="keywords" content="' . $context['meta_keywords'] . '" />' : '', '
-	<title>', $context['page_title_html_safe'], '</title>';
+	<meta name="theme-color" content="', $settings['st_site_color'] ?? $settings['theme_default_color'], '">';
 
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))
 		echo '
-	<meta name="robots" content="noindex" />';
+	<meta name="robots" content="noindex">';
 
 	// Present a canonical url for search engines to prevent duplicate content in their indices.
 	if (!empty($context['canonical_url']))
 		echo '
-	<link rel="canonical" href="', $context['canonical_url'], '" />';
+	<link rel="canonical" href="', $context['canonical_url'], '">';
 
 	// Show all the relative links, such as help, search, contents, and the like.
 	echo '
-	<link rel="help" href="', $scripturl, '?action=help" />
-	<link rel="search" href="', $scripturl, '?action=search" />
-	<link rel="contents" href="', $scripturl, '" />';
+	<link rel="help" href="', $scripturl, '?action=help">
+	<link rel="contents" href="', $scripturl, '">', ($context['allow_search'] ? '
+	<link rel="search" href="' . $scripturl . '?action=search">' : '');
 
 	// If RSS feeds are enabled, advertise the presence of one.
 	if (!empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']))
 		echo '
-	<link rel="alternate" type="application/rss+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['rss'], '" href="', $scripturl, '?type=rss;action=.xml" />';
+	<link rel="alternate" type="application/rss+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['rss'], '" href="', $scripturl, '?action=.xml;type=rss2', !empty($context['current_board']) ? ';board=' . $context['current_board'] : '', '">
+	<link rel="alternate" type="application/atom+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['atom'], '" href="', $scripturl, '?action=.xml;type=atom', !empty($context['current_board']) ? ';board=' . $context['current_board'] : '', '">';
+
+	// If we're viewing a topic, these should be the previous and next topics, respectively.
+	if (!empty($context['links']['next']))
+		echo '
+	<link rel="next" href="', $context['links']['next'], '">';
+
+	if (!empty($context['links']['prev']))
+		echo '
+	<link rel="prev" href="', $context['links']['prev'], '">';
 
 	// If we're in a board, or a topic for that matter, the index will be the board's index.
 	if (!empty($context['current_board']))
 		echo '
-	<link rel="index" href="', $scripturl, '?board=', $context['current_board'], '.0" />';
+	<link rel="index" href="', $scripturl, '?board=', $context['current_board'], '.0">';
 
 	// Output any remaining HTML headers. (from mods, maybe?)
 	echo $context['html_headers'];
 
 	echo '
 </head>
-<body>';
+<body id="', $context['browser_body_id'], '" class="action_', !empty($context['current_action']) ? $context['current_action'] : (!empty($context['current_board']) ?
+		'messageindex' : (!empty($context['current_topic']) ? 'display' : 'home')), !empty($context['current_board']) ? ' board_' . $context['current_board'] : '', '">
+<div id="footerfix">';
 }
 
+/**
+ * The upper part of the main template layer. This is the stuff that shows above the main forum content.
+ */
 function template_body_above()
 {
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+	global $context, $settings, $scripturl, $txt, $modSettings, $maintenance;
 
-	echo'
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-	<div class="container">
-		<div class="row">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand visible-xs" href="', $scripturl, '">', $context['forum_name'] ,'</a>
-			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">';
-				
-					// Show the menu here, according to the menu sub template.
-					template_menu();
-					
-				echo'
-				</ul>
-			</div>
-		</div>
-	</div>
-</nav>
-<header>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-9">
-				<a href="', $scripturl, '"><img src="' , !empty($context['header_logo_url_html_safe']) ? $context['header_logo_url_html_safe'] : $settings['images_url'] . '/logo.png' , '" alt="' . $context['forum_name'] . '" /></a>
-			</div>
-			<div class="col-md-3">';
-			if ($context['user']['is_logged'])
-			{
-				if (!empty($context['user']['avatar']))
-				echo '
-					<img src="', $context['user']['avatar']['href'], '" class="avatar img-circle img-thumbnail" alt="*" />';
-				echo'
-					<ul class="reset">
-						<li class="user">', $context['user']['name'], '</li>
-						<li><a href="', $scripturl, '?action=profile">', $txt['profile'], '</a></li>
-						<li><a href="', $scripturl, '?action=profile;area=forumprofile">', $txt['forumprofile'], '</a></li>
-						<li><a href="', $scripturl, '?action=unread">', $txt['unread_topics_visit'], '</a></li>
-						<li><a href="', $scripturl, '?action=unreadreplies">', $txt['unread_replies'], '</a></li>
-					</ul>';
-			}
-			else
-			{
-			echo'
-				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">', $txt['login'] ,'</button>
-				<button type="button" class="btn btn-primary" onclick="location.href=\''. $scripturl .'?action=register\'">', $txt['register'] ,'</button>
-				<form id="guest_form" action="', $scripturl, '?action=login2" method="post" accept-charset="', $context['character_set'], '" ', empty($context['disable_login_hashing']) ? ' onsubmit="hashLoginPassword(this, \'' . $context['session_id'] . '\');"' : '', '>
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-									<h4 class="modal-title" id="myModalLabel">', $txt['login'] ,'</h4>
-								</div>
-								<div class="modal-body">
-										<div class="form-group">
-											<input type="text" name="user" class="form-control" placeholder="', $txt['user'] ,'" />
-										</div>
-										<div class="form-group">
-											<input type="password" name="passwrd" class="form-control" placeholder="', $txt['password'] ,'" />
-											<input type="hidden" name="hash_passwrd" value="" /><input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
-										</div>
-										<div class="checkbox">
-											<label>
-												<input name="cookielength" type="checkbox" value="-1" /> ', $txt['rs_remember'] ,'
-											</label>
-										</div>
-								</div>
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-success">', $txt['login'] ,'</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>';
-			}
-			echo'
-			</div>
-		</div>
-	</div>
-</header>';
+	// Header
+	echo '
+	<header id="header">
+		<div class="content-wrapper">
+			<h1 class="forumtitle">
+				<a id="top" href="', $scripturl, '">
+					', empty($context['header_logo_url_html_safe']) ? '<img id="smflogo" src="' . $settings['images_url'] . '/smflogo.svg" alt="Simple Machines Forum" title="Simple Machines Forum">' : '<img src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name_html_safe'] . '">', '
+				</a>
+				', empty($settings['site_slogan']) ? '' : '<span id="siteslogan">' . $settings['site_slogan'] . '</span>', '
+			</h1>';
 
-	// Show the navigation tree.
-	theme_linktree();
-	
-echo'
-<div class="container">
-	<div class="row">';
+	//User Panel
+	// If the user is logged in, display some things that might be useful.
+	echo '
+		<div class="user_panel">
+			<ul id="top_info">';
 
-		// The main content should go here.
+				// New topic button
+				themecustoms_quicknewtopic();
+
+	// If the user is logged in, display some things that might be useful.
+	if ($context['user']['is_logged'])
+	{
+		// PMs if we're doing them
+		if ($context['allow_pm'])
+			echo '
+				<li>
+					<a href="', $scripturl, '?action=pm"', !empty($context['self_pm']) ? ' class="active"' : '', ' id="pm_menu_top" title="', $txt['pm_short'], '">
+						<span class="main_icons inbox"></span>
+						<span class="text-label">', $txt['pm_short'], '</span>', !empty($context['user']['unread_messages']) ? '
+						<span class="amt">' . $context['user']['unread_messages'] . '</span>' : '', '
+					</a>
+					<div id="pm_menu" class="top_menu scroll"></div>
+				</li>';
+
+		// Alerts
 		echo '
-		<div id="main_content_section">';
+				<li>
+					<a href="', $scripturl, '?action=profile;area=showalerts;u=', $context['user']['id'], '"', !empty($context['self_alerts']) ? ' class="active"' : '', ' id="alerts_menu_top" title="', $txt['alerts'], '">
+						<span class="main_icons alerts"></span>
+						<span class="text-label">', $txt['alerts'], '</span>', !empty($context['user']['alerts']) ? '
+						<span class="amt">' . $context['user']['alerts'] . '</span>' : '', '
+					</a>
+					<div id="alerts_menu" class="top_menu scroll"></div>
+				</li>';
 
-		// Custom banners and shoutboxes should be placed here, before the linktree.
+		// The user's menu
+		echo '
+				<li>
+					<a href="', $scripturl, '?action=profile"', !empty($context['self_profile']) ? ' class="active"' : '', ' id="profile_menu_top" title="', $txt['profile'], '">
+						', $context['user']['avatar']['image'], '
+						<span class="text-label">', $context['user']['name'], '</span>
+					</a>
+					<div id="profile_menu" class="top_menu"></div>
+				</li>';
+
+		// A logout button for people without JavaScript.
+		if (empty($settings['login_main_menu'])) {
+			echo '
+				<li id="nojs_logout">
+					<a href="', $scripturl, '?action=logout;', $context['session_var'], '=', $context['session_id'], '" title="', $txt['logout'], '">
+						<span class="main_icons logout"></span>
+						<span class="text-label">', $txt['logout'], '</span>
+					</a>
+					<script>document.getElementById("nojs_logout").style.display = "none";</script>
+				</li>';
+		}
+	}
+	// Otherwise they're a guest. Ask them to either register or login.
+	elseif (empty($maintenance)) {
+		// Some people like to do things the old-fashioned way.
+		if (!empty($settings['login_main_menu'])) {
+			echo '
+				<li class="welcome">
+					', sprintf($txt[$context['can_register'] ? 'welcome_guest_register' : 'welcome_guest'], $context['forum_name_html_safe'], $scripturl . '?action=login', 'return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');', $scripturl . '?action=signup'), '
+				</li>';
+		} else {
+			echo '
+				<li class="button_login">
+					<a href="', $scripturl, '?action=login" class="', $context['current_action'] == 'login' ? 'active' : 'open','" onclick="return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');" title="', $txt['login'],'">
+						<span class="main_icons login"></span>
+						<span class="text-label">', $txt['login'], '</span>
+					</a>
+				</li>';
+
+			if ($context['can_register'])
+				echo '
+				<li class="button_signup">
+					<a href="', $scripturl, '?action=signup" class="', $context['current_action'] == 'signup' ? 'active' : 'open','" title="', $txt['register'],'">
+						<span class="main_icons signpu"></span>
+						<span class="text-label">', $txt['register'], '</span>
+					</a>
+				</li>';
+		}
+	}
+	else
+		// In maintenance mode, only login is allowed and don't show OverlayDiv
+		echo '
+				<li>', sprintf($txt['welcome_guest'], $context['forum_name_html_safe'], $scripturl . '?action=login', 'return true;'), '</li>>';
+
+	echo '
+			</ul>';
+
+		echo '
+			</div>
+		</div><!-- .content-wrapper -->
+	</header><!-- header -->';
+
+	// Show the menu here
+	template_menu();
+
+	echo '
+	<div class="content-wrapper">';
+
+
+	// Show a random news item? (or you could pick one from news_lines...)
+	if (!empty($settings['enable_news']) && !empty($context['random_news_line']))
+		echo '
+		<div class="random_news">
+			<h2>', $txt['news'], ': </h2>
+			<p>', $context['random_news_line'], '</p>
+		</div>';
+
+		theme_linktree();
+
+		!function_exists('themecustoms_carousel') ? '' : themecustoms_carousel();
+
+	// The main content should go here.
+	echo '
+		<div id="content_section">
+			<div id="main_content_section">';
 }
 
+/**
+ * The stuff shown immediately below the main content, including the footer
+ */
 function template_body_below()
 {
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+	global $context, $txt, $scripturl, $modSettings;
+
+	echo '
+			</div><!-- #main_content_section -->
+		</div><!-- #content_section -->
+	</div><!-- .content-wrapper -->
+</div><!-- #footerfix -->';
+
+	// Show the footer with copyright, terms and help links.
+	echo '
+	<footer id="footer">
+		<div class="content-wrapper">';
+
+	// There is now a global "Go to top" link at the right.
+	echo '
+			<ul class="copyright">
+				<li class="smf_copyright">', theme_copyright(), '</li>
+			</ul>
+			<ul>
+				<li class="helplinks">
+					<a href="', $scripturl, '?action=help">', $txt['help'], ' <i class="fa-solid fa-circle-question"></i></a>', (!empty($modSettings['requireAgreement'])) ? '
+					<a href="' . $scripturl . '?action=agreement">' . $txt['terms_and_rules'] . ' <i class="fa-solid fa-list-ul"></i></a>' : '', '
+					<a href="#header">', $txt['go_up'], ' &#9650;</a>
+				</li>
+			</ul>';
+
+	// Show the load time?
+	if ($context['show_load_time'])
+		echo '
+			<p>', sprintf($txt['page_created_full'], $context['load_time'], $context['load_queries']), '</p>';
 
 	echo '
 		</div>
-	</div>
-</div>';
-
-		// Show the "Powered by" and "Valid" logos, as well as the copyright. Remember, the copyright must be somewhere!
-		echo '
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="social_icons col-lg-12">';
-						if(!empty($settings['facebook_check']))
-						echo'
-							<a href="', !empty($settings['facebook_text']) ? $settings['facebook_text'] : 'https://www.facebook.com ' ,'"><img src="', $settings['images_url'], '/social_icons/facebook.png" alt="', $txt['rs_facebook'], '" /></a>';
-						if(!empty($settings['twitter_check']))
-						echo'
-							<a href="', !empty($settings['twitter_text']) ? $settings['twitter_text'] : 'https://www.twitter.com' ,'"><img src="', $settings['images_url'], '/social_icons/twitter.png" alt="', $txt['rs_twitter'], '" /></a>';
-						if(!empty($settings['youtube_check']))
-						echo'
-							<a href="', !empty($settings['youtube_text']) ? $settings['youtube_text'] : 'https://www.youtube.com' ,'"><img src="', $settings['images_url'], '/social_icons/youtube.png" alt="', $txt['rs_youtube'], '" /></a>';
-						if(!empty($settings['rss_check']))
-						echo'
-							<a href="', !empty($settings['rss_text']) ? $settings['rss_text'] : $scripturl .'?action=.xml;type=rss' ,'"><img src="', $settings['images_url'], '/social_icons/rss.png" alt="', $txt['rs_rss'], '" /></a>';
-						echo'
-					</div> 
-					<div class="col-lg-12">
-						', theme_copyright(), '
-					</div>
-					<div class="col-lg-12">
-						Theme by <a href="https://smftricks.com">SMF Tricks</a>
-					</div>
-					<div class="col-lg-12">
-						', !empty($settings['reseller_copyright']) ? $settings['reseller_copyright'] : $context['forum_name'] .' &copy;' ,'
- 					</div>';
-
-				// Show the load time?
-				if ($context['show_load_time'])
-					echo '
-					<p>', $txt['page_created'], $context['load_time'], $txt['seconds_with'], $context['load_queries'], $txt['queries'], '</p>';
-
-				echo '
-				</div>
-			</div>
-		</footer>';
+	</footer><!-- #footer -->';
 }
 
+/**
+ * This shows any deferred JavaScript and closes out the HTML
+ */
 function template_html_below()
 {
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+	// Load in any javascipt that could be deferred to the end of the page
+	template_javascript(true);
 
 	echo '
-</body></html>';
+</body>
+</html>';
 }
 
-// Show a linktree. This is that thing that shows "My Community | General Category | General Discussion"..
+/**
+ * Show a linktree. This is that thing that shows "My Community | General Category | General Discussion"..
+ *
+ * @param bool $force_show Whether to force showing it even if settings say otherwise
+ */
 function theme_linktree($force_show = false)
 {
-	global $context, $settings, $options, $shown_linktree;
+	global $context, $shown_linktree, $scripturl, $txt;
 
 	// If linktree is empty, just return - also allow an override.
 	if (empty($context['linktree']) || (!empty($context['dont_default_linktree']) && !$force_show))
 		return;
 
 	echo '
-	<div class="navigate_section">
-		<div class="container">
-			<div class="row">
-				<ol class="breadcrumb">';
+		<nav aria-label="', $txt['st_breadcrumb'], '" class="navigate_section">
+			<ul>';
 
-			// Each tree item has a URL and name. Some may have extra_before and extra_after.
-			foreach ($context['linktree'] as $link_num => $tree)
-			{
-				echo '
-					<li', ($link_num == count($context['linktree']) - 1) ? ' class="active"' : '', '>';
+	// Each tree item has a URL and name. Some may have extra_before and extra_after.
+	foreach ($context['linktree'] as $link_num => $tree)
+	{
+		echo '
+				<li', ($link_num == count($context['linktree']) - 1) ? ' class="last"' : '', '>';
 
-				// Show something before the link?
-				if (isset($tree['extra_before']))
-					echo $tree['extra_before'];
-
-				// Show the link, including a URL if it should have one.
-				echo $settings['linktree_link'] && isset($tree['url']) ? '
-						<a href="' . $tree['url'] . '"><span>' . $tree['name'] . '</span></a>' : '<span>' . $tree['name'] . '</span>';
-
-				// Show something after the link...?
-				if (isset($tree['extra_after']))
-					echo $tree['extra_after'];
-
-				echo '
-					</li>';
-			}
+		// Don't show a separator for the first one.
+		// Better here. Always points to the next level when the linktree breaks to a second line.
+		// Picked a better looking HTML entity, and added support for RTL plus a span for styling.
+		if ($link_num != 0)
 			echo '
-				</ol>
-			</div>
-		</div>
-	</div>';
+					<span class="dividers"><i class="fa-solid fa-angle-', $context['right_to_left'] ? 'left' : 'right', '"></i></span>';
+
+		// Show something before the link?
+		if (isset($tree['extra_before']))
+			echo $tree['extra_before'], ' ';
+
+		// Show the link, including a URL if it should have one.
+		if (isset($tree['url']))
+			echo '
+					<a href="' . $tree['url'] . '"><span>' . $tree['name'] . '</span></a>';
+		else
+			echo '
+					<span>' . $tree['name'] . '</span>';
+
+		// Show something after the link...?
+		if (isset($tree['extra_after']))
+			echo ' ', $tree['extra_after'];
+
+		echo '
+				</li>';
+	}
+
+	echo '
+			</ul>
+		</nav><!-- .navigate_section -->';
 
 	$shown_linktree = true;
 }
 
-// Show the menu up top. Something like [home] [help] [profile] [logout]...
+/**
+ * Show the menu up top. Something like [home] [help] [profile] [logout]...
+ */
 function template_menu()
 {
-	global $context, $settings, $options, $scripturl, $txt;
+	global $context, $scripturl, $txt;
 
+	echo '
+	<nav id="mainNav" class="navbar navbar-expand-lg" aria-label="', $txt['mobile_user_menu'], '">
+		<div class="content-wrapper">
+			<span class="d-lg-none">
+				<a class="navbar-brand" href="', $scripturl, '">', $txt['mobile_user_menu'], '</a>
+			</span>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="', $txt['st_menu_toggle'], '">
+				<i class="fa-solid fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="mainNavbar">
+				<ul class="navbar-nav">';
+
+	// Note: Menu markup has been cleaned up to remove unnecessary spans and classes.
 	foreach ($context['menu_buttons'] as $act => $button)
 	{
 		echo '
-				<li id="button_', $act, '" class="', !empty($button['sub_buttons']) ? 'dropdown ' : '', '', $button['active_button'] ? 'active ' : '', '">
-					<a', !empty($button['sub_buttons']) ? ' class="dropdown-toggle" ' : '', ' href="', !empty($button['sub_buttons']) ? '#' : $button['href'], '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', '', !empty($button['sub_buttons']) ? ' data-toggle="dropdown"' : '', '>
-						', $button['title'], '
-						', !empty($button['sub_buttons']) ? '<span class="caret"></span>' : '' ,'
-					</a>';
+					<li class="nav-item button_', $act, !empty($button['sub_buttons']) ? ' dropdown' : '', '">
+						<a class="nav-link', $button['active_button'] ? ' active' : '', !empty($button['sub_buttons']) ? ' dropdown-toggle' : '', '"', $button['active_button'] ? ' aria-current="page"' : '', ' href="', $button['href'], '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', isset($button['onclick']) ? ' onclick="' . $button['onclick'] . '"' : '', !empty($button['sub_buttons']) ? ' role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"' : '', '>
+							', $button['icon'], '
+							<span class="textmenu">
+								', $button['title'], '
+							</span>
+							', !empty($button['amt']) ? ' <span class="amt">' . $button['amt'] . '</span>' : '', '
+						</a>';
+
+		// 2nd level menus
 		if (!empty($button['sub_buttons']))
 		{
 			echo '
-					<ul class="dropdown-menu" role="menu">';
+						<ul class="dropdown-menu">';
 
 			foreach ($button['sub_buttons'] as $childbutton)
 			{
+					echo '
+							<li class="dropend">
+								<a class="dropdown-item', !empty($childbutton['sub_buttons']) ? ' dropdown-toggle' : '', '" href="', $childbutton['href'], '"', isset($childbutton['target']) ? ' target="' . $childbutton['target'] . '"' : '', isset($childbutton['onclick']) ? ' onclick="' . $childbutton['onclick'] . '"' : '', !empty($childbutton['sub_buttons']) ? ' role="button" data-bs-toggle="dropdown" aria-expanded="false"' : '', '>
+									<span class="textmenu">
+										', $childbutton['title'], '
+									</span>
+									', !empty($childbutton['amt']) ? ' <span class="amt">' . $childbutton['amt'] . '</span>' : '', '
+								</a>';
+				// 3rd level menus :)
+				if (!empty($childbutton['sub_buttons']))
+				{
+					echo '
+								<ul class="dropdown-menu">';
+
+					foreach ($childbutton['sub_buttons'] as $grandchildbutton)
+						echo '
+									<li>
+										<a class="dropdown-item" href="', $grandchildbutton['href'], '"', isset($grandchildbutton['target']) ? ' target="' . $grandchildbutton['target'] . '"' : '', isset($grandchildbutton['onclick']) ? ' onclick="' . $grandchildbutton['onclick'] . '"' : '', '>
+											<span class="textmenu">
+												', $grandchildbutton['title'], '
+											</span>
+											', !empty($grandchildbutton['amt']) ? ' <span class="amt">' . $grandchildbutton['amt'] . '</span>' : '', '
+										</a>
+									</li>';
+
+					echo '
+								</ul>';
+				}
+
 				echo '
-						<li>
-							<a href="', $childbutton['href'], '"', isset($childbutton['target']) ? ' target="' . $childbutton['target'] . '"' : '', '>
-								', $childbutton['title'] , '
-							</a>
-						</li>';
+							</li>';
 			}
-				echo '
-					</ul>';
+			echo '
+						</ul>';
 		}
 		echo '
-				</li>';
+					</li>';
 	}
+
+	echo '
+				</ul><!-- .navbar-nav -->';
+
+	// Unread buttons
+	if ($context['user']['is_logged']) {
+		echo '
+				<ul class="dropmenu">
+					<li>
+						<a href="', $scripturl, '?action=unread" title="', $txt['unread_since_visit'], '">', $txt['view_unread_category'], '</a>
+					</li>
+					<li>
+						<a href="', $scripturl, '?action=unreadreplies" title="', $txt['show_unread_replies'], '">', $txt['unread_replies'], '</a>
+					</li>
+				</ul>';
+	}
+
+	echo '
+			</div>
+		</div>
+	</nav>';
 }
 
-// Generate a strip of buttons.
-function template_button_strip($button_strip, $direction = 'top', $strip_options = array())
+/**
+ * Generate a strip of buttons.
+ *
+ * @param array $button_strip An array with info for displaying the strip
+ * @param string $direction The direction
+ * @param array $strip_options Options for the button strip
+ */
+function template_button_strip($button_strip, $direction = '', $strip_options = array())
 {
-	global $settings, $context, $txt, $scripturl;
+	global $context, $txt;
 
 	if (!is_array($strip_options))
 		$strip_options = array();
 
-	// List the buttons in reverse order for RTL languages.
-	if ($context['right_to_left'])
-		$button_strip = array_reverse($button_strip, true);
-
 	// Create the buttons...
 	$buttons = array();
-	foreach ($button_strip as $key => $value)
-	{
-		if (!isset($value['test']) || !empty($context[$value['test']]))
-			$buttons[] = '
-				<li><a' . (isset($value['id']) ? ' id="button_strip_' . $value['id'] . '"' : '') . ' class="button_strip_' . $key . (isset($value['active']) ? ' active' : '') . '" href="' . $value['url'] . '"' . (isset($value['custom']) ? ' ' . $value['custom'] : '') . '><span>' . $txt[$value['text']] . '</span></a></li>';
+	$button_count = 0;
+	foreach ($button_strip as $key => $value) {
+		$button_count++;
+		// As of 2.1, the 'test' for each button happens while the array is being generated. The extra 'test' check here is deprecated but kept for backward compatibility (update your mods, folks!)
+		if (!isset($value['test']) || !empty($context[$value['test']])) {
+			if (!isset($value['id']))
+				$value['id'] = $key;
+
+			$button = '
+			<li' . (isset($value['content']) ? ' class="' . $value['class'] . '"' : '') . '>';
+
+			if (isset($value['content'])) {
+				$button .= $value['content'];
+			} else {
+				$button .= (empty($value['url']) ? '<button' : '<a');
+				$button .= ' class="button_item_'. $key . (!empty($value['sub_buttons']) ? ' sub_buttons' : '') . (!empty($value['active']) ? ' active' : '') . (isset($value['class']) ? ' ' . $value['class'] : '') . '"' . (!empty($value['url']) ? ' href="' . $value['url'] . '"' : '') . (isset($value['custom']) ? ' ' . $value['custom'] : '') . ' aria-label="' . $txt[$value['text']] . '" title="' . $txt[$value['text']] . '">
+					' . (!empty($value['icon']) ? '<span class="main_icons ' . $value['icon'] . '"></span>' : '') . '
+					<span class="text-label">' . $txt[$value['text']] . '</span>';
+				$button .= '</' . (empty($value['url']) ? 'button' : 'a') . '>';
+			}
+
+			if (!empty($value['sub_buttons']) && !empty($value['options'])) {
+				$button .= '
+				<button aria-label="' . $txt['st_options'] . '" class="reset' . (!empty($value['active']) ? ' active ' : '') . ' dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>';
+			}
+
+			if (!empty($value['sub_buttons'])) {
+				$button .= '
+				<div class="top_menu" data-button-dropdown="' . $key . '_dropdown">
+					<div class="viewport dropmenu">
+						<div class="title_bar">
+							<h4 class="titlebg">' . $txt[$value['text']] . '</h4>
+							<button class="reset">
+								<span class="main_icons close"></span>
+							</button>
+						</div>
+						<ul class="overview">';
+				foreach ($value['sub_buttons'] as $element) {
+					if (isset($element['test']) && empty($context[$element['test']]))
+						continue;
+
+					$button .= '
+							<li>
+								<a href="' . $element['url'] . '"'. (!empty($element['active']) ? ' class="active"' : '') . '>
+									'. (!empty($element['icon']) ? '<span class="main_icons ' . $element['icon'] . '"></span>' : '') . '
+									<span class="text-label">' . ($element['label'] ?? $txt[$element['text']]) . '</span>';
+
+					if (isset($element['text']) && isset($txt[$element['text'] . '_desc']))
+						$button .= '
+									<span>' . $txt[$element['text'] . '_desc'] . '</span>';
+
+						$button .= '
+								</a>
+							</li>';
+				}
+				$button .= '
+						</ul><!-- .overview -->
+					</div><!-- .viewport -->
+				</div><!-- .top_menu -->';
+			}
+
+			$button .= '
+			</li>';
+
+			$buttons[] = $button;
+		}
 	}
 
 	// No buttons? No button strip either.
 	if (empty($buttons))
 		return;
 
-	// Make the last one, as easy as possible.
-	$buttons[count($buttons) - 1] = str_replace('<span>', '<span class="last">', $buttons[count($buttons) - 1]);
-
 	echo '
-		<div class="btn-group', !empty($direction) ? ' navbar-' . $direction : '', '"', (empty($buttons) ? ' style="display: none;"' : ''), (!empty($strip_options['id']) ? ' id="' . $strip_options['id'] . '"': ''), '>
-			<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-    			+
-  			</button>
-			<ul class="dropdown-menu" role="menu">',
-				implode('', $buttons), '
-			</ul>
-		</div>';
+		<ul class="buttonlist', !empty($direction) ? ' float' . $direction : '', '"', (empty($buttons) ? ' style="display: none;"' : ''), (!empty($strip_options['id']) ? ' id="' . $strip_options['id'] . '"' : ''), '>
+			', implode('', $buttons), '
+		</ul>';
 }
 
-?>
+/**
+ * Generate a list of quickbuttons.
+ *
+ * @param array $list_items An array with info for displaying the strip
+ * @param string $list_class Used for integration hooks and as a class name
+ * @param string $output_method The output method. If 'echo', simply displays the buttons, otherwise returns the HTML for them
+ * @return void|string Returns nothing unless output_method is something other than 'echo'
+ */
+function template_quickbuttons($list_items, $list_class = null, $output_method = 'echo')
+{
+	global $txt;
+
+	// Enable manipulation with hooks
+	if (!empty($list_class))
+		call_integration_hook('integrate_' . $list_class . '_quickbuttons', array(&$list_items));
+
+	// Make sure the list has at least one shown item
+	foreach ($list_items as $key => $li)
+	{
+		// Is there a sublist, and does it have any shown items
+		if ($key == 'more')
+		{
+			foreach ($li as $subkey => $subli)
+				if (isset($subli['show']) && !$subli['show'])
+					unset($list_items[$key][$subkey]);
+
+			if (empty($list_items[$key]))
+				unset($list_items[$key]);
+		}
+		// A normal list item
+		elseif (isset($li['show']) && !$li['show'])
+			unset($list_items[$key]);
+	}
+
+	// Now check if there are any items left
+	if (empty($list_items))
+		return;
+
+	// Print the quickbuttons
+	$output = '
+		<ul class="quickbuttons' . (!empty($list_class) ? ' quickbuttons_' . $list_class : '') . '">';
+
+	// This is used for a list item or a sublist item
+	$list_item_format = function($li)
+	{
+		$html = '
+			<li' . (!empty($li['class']) ? ' class="' . $li['class'] . '"' : '') . (!empty($li['id']) ? ' id="' . $li['id'] . '"' : '') . (!empty($li['custom']) ? ' ' . $li['custom'] : '') . '>';
+
+		if (isset($li['content']))
+			$html .= $li['content'];
+		else
+			$html .= '
+				<a href="' . (!empty($li['href']) ? $li['href'] : 'javascript:void(0);') . '"' . (!empty($li['javascript']) ? ' ' . $li['javascript'] : '') . '>
+					' . (!empty($li['icon']) ? '<span class="main_icons ' . $li['icon'] . '"></span>' : '') . (!empty($li['label']) ? '<span class="text-label">' . $li['label'] . '</span>' : '') . '
+				</a>';
+
+		$html .= '
+			</li>';
+
+		return $html;
+	};
+
+	foreach ($list_items as $key => $li)
+	{
+		// Handle the sublist
+		if ($key == 'more')
+		{
+			$output .= '
+			<li class="quickoptions">
+				<a href="javascript:void(0);">
+					<span class="main_icons more"></span>
+					<span class="text-label">' . $txt['post_options'] . '</span>
+				</a>
+				<ul>';
+
+			foreach ($li as $subli)
+				$output .= $list_item_format($subli);
+
+			$output .= '
+				</ul>
+			</li>';
+		}
+		// Ordinary list item
+		else
+			$output .= $list_item_format($li);
+	}
+
+	$output .= '
+		</ul><!-- .quickbuttons -->';
+
+	// There are a few spots where the result needs to be returned
+	if ($output_method == 'echo')
+		echo $output;
+	else
+		return $output;
+}
+
+/**
+ * The upper part of the maintenance warning box
+ */
+function template_maint_warning_above()
+{
+	global $txt, $context, $scripturl;
+
+	echo '
+	<div class="errorbox" id="errors">
+		<dl>
+			<dt>
+				<strong id="error_serious">', $txt['forum_in_maintenance'], '</strong>
+			</dt>
+			<dd class="error" id="error_list">
+				', sprintf($txt['maintenance_page'], $scripturl . '?action=admin;area=serversettings;' . $context['session_var'] . '=' . $context['session_id']), '
+			</dd>
+		</dl>
+	</div>';
+}
+
+/**
+ * The lower part of the maintenance warning box.
+ */
+function template_maint_warning_below()
+{
+
+}

@@ -1,0 +1,410 @@
+/*! SCEditor | (C) 2011-2013, Sam Clarke | sceditor.com/license */
+/**
+ * SCEditor
+ * https://www.sceditor.com/
+ *
+ * Copyright (C) 2011-12, Sam Clarke (samclarke.com)
+ *
+ * SCEditor is licensed under the MIT license:
+ *	https://opensource.org/licenses/mit-license.php
+ */
+ .sceditor-grip {
+	background: var(--roundframe-bg);
+	border-color: var(--roundframe-border-color);
+	border-radius: var(--input-border-radius);
+	border-style: solid;
+	border-width: 1px 0 0;
+	cursor: s-resize;
+	padding-block: .5em;
+}
+.sceditor-grip::before {
+	background: linear-gradient(#0000 0, var(--input-border-color) 2px, #0000 3px, var(--input-border-color) 5px, #0000 6px, var(--input-border-color) 8px, #0000 9px);
+	content: "";
+	display: block;
+	height: 9px;
+	margin-inline: auto;
+	width: 3em;
+}
+.sceditor-button div {
+	background-image: url("../images/icons/editor_sprite.png");
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+}
+.sceditor-button-youtube div {
+	background-position: 0px 0px;
+}
+.sceditor-button-link div {
+	background-position: 0px -16px;
+}
+.sceditor-button-unlink div {
+	background-position: 0px -32px;
+}
+.sceditor-button-underline div {
+	background-position: 0px -48px;
+}
+.sceditor-button-time div {
+	background-position: 0px -64px;
+}
+.sceditor-button-table div {
+	background-position: 0px -80px;
+}
+.sceditor-button-superscript div {
+	background-position: 0px -96px;
+}
+.sceditor-button-subscript div {
+	background-position: 0px -112px;
+}
+.sceditor-button-strike div {
+	background-position: 0px -128px;
+}
+.sceditor-button-source div {
+	background-position: 0px -144px;
+}
+.sceditor-button-size div {
+	background-position: 0px -160px;
+}
+.sceditor-button-rtl div {
+	background-position: 0px -176px;
+}
+.sceditor-button-right div {
+	background-position: 0px -192px;
+}
+.sceditor-button-removeformat div {
+	background-position: 0px -208px;
+}
+.sceditor-button-quote div {
+	background-position: 0px -224px;
+}
+.sceditor-button-print div {
+	background-position: 0px -240px;
+}
+.sceditor-button-pastetext div {
+	background-position: 0px -256px;
+}
+.sceditor-button-paste div {
+	background-position: 0px -272px;
+}
+.sceditor-button-outdent div {
+	background-position: 0px -288px;
+}
+.sceditor-button-orderedlist div {
+	background-position: 0px -304px;
+}
+.sceditor-button-maximize div {
+	background-position: 0px -320px;
+}
+.sceditor-button-ltr div {
+	background-position: 0px -336px;
+}
+.sceditor-button-left div {
+	background-position: 0px -352px;
+}
+.sceditor-button-justify div {
+	background-position: 0px -368px;
+}
+.sceditor-button-italic div {
+	background-position: 0px -384px;
+}
+.sceditor-button-indent div {
+	background-position: 0px -400px;
+}
+.sceditor-button-image div {
+	background-position: 0px -416px;
+}
+.sceditor-button-horizontalrule div {
+	background-position: 0px -432px;
+}
+.sceditor-button-format div {
+	background-position: 0px -448px;
+}
+.sceditor-button-font div {
+	background-position: 0px -464px;
+}
+.sceditor-insertemoticon img {
+	margin: 4px;
+}
+.sceditor-button-email div {
+	background-position: 0px -496px;
+}
+.sceditor-button-date div {
+	background-position: 0px -512px;
+}
+.sceditor-button-cut div {
+	background-position: 0px -528px;
+}
+.sceditor-button-copy div {
+	background-position: 0px -544px;
+}
+.sceditor-button-color div {
+	background-position: 0px -560px;
+}
+.sceditor-button-code div {
+	background-position: 0px -576px;
+}
+.sceditor-button-center div {
+	background-position: 0px -592px;
+}
+.sceditor-button-bulletlist div {
+	background-position: 0px -608px;
+}
+.sceditor-button-bold div {
+	background-position: 0px -624px;
+}
+.sceditor-container {
+	border-color: var(--input-border-color);
+	border-radius: var(--input-border-radius);
+	border-end-end-radius: 0;
+	border-end-start-radius: 0;
+	border-style: var(--input-border-style);
+	border-width: var(--input-border-width);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.sceditor-container:has(~ #post_attachments_area) {
+	border-bottom-color: var(--roundframe-border-color)
+}
+.sceditor-container iframe,
+.sceditor-container textarea {
+	border: 0;
+	flex: 1 1 0%;
+	margin: 0;
+	min-height: 0;
+	outline: none;
+	padding: 0;
+	resize: none;
+}
+div.sceditor-dnd-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.2);
+	border: 5px dashed #aaa;
+	z-index: 200;
+	font-size: 2em;
+	text-align: center;
+	color: #aaa;
+}
+div.sceditor-dnd-cover p {
+	position: relative;
+	top: 45%;
+	pointer-events: none;
+}
+div.sceditor-resize-cover {
+	position: absolute;
+	top: 0;
+	left: 0; 
+	background: currentColor;
+	opacity: 0.3;
+	cursor: s-resize;
+	width: 100%;
+	height: 100%;
+}
+.sceditor-maximize {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100% !important;
+	width: 100% !important;
+	border-radius: 0;
+	z-index: 2000;
+}
+html.sceditor-maximize,
+body.sceditor-maximize {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+.sceditor-maximize div.sceditor-grip {
+	display: none;
+}
+.sceditor-dropdown {
+	position: absolute;
+	border: 1px solid #ccc;
+	background: #fff;
+	z-index: 4000;
+	border-radius: 2px;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.sceditor-dropdown:not(.sceditor-font-picker, .sceditor-fontsize-picker, .sceditor-format, .sceditor-color-picker) > div {
+	display: grid; 
+	grid-template-columns: 20em 20em;
+	gap: 0.5em;
+	padding: 0.5em;
+}
+.sceditor-dropdown:not(.sceditor-font-picker, .sceditor-fontsize-picker, .sceditor-format, .sceditor-color-picker, .sceditor-insertimage) div, .sceditor-insertimage > div > :first-child, .sceditor-insertimage > div > :last-child {
+	grid-column: span 2;
+}
+.sceditor-dropdown:not(.sceditor-font-picker, .sceditor-fontsize-picker, .sceditor-format, .sceditor-color-picker, .sceditor-insertimage) input[type=text], .sceditor-insertimage > div > :first-child input {
+	width: 90%;
+}
+.sceditor-dropdown label {
+	display: block;
+	color: #3c3c3c;
+	padding: 4px 0;
+}
+.sceditor-dropdown a:hover {
+	background: #eee;
+	text-decoration: none;
+}
+.sceditor-dropdown a {
+	color: #222;
+	display: block;
+	line-height: 1;
+	padding: 7px 10px;
+}
+.sceditor-color-picker span {
+	float: left;
+	width: 1em;
+	height: 1em;
+	margin: 0 0.3em;
+}
+.sceditor-insertemoticon {
+	margin: 0.4em 0.2em;
+}
+.sceditor-toolbar {
+	align-items: baseline;
+	display: flex;
+	flex-wrap: wrap;
+}
+.sceditor-toolbar > div:not([class]) {
+	flex: 100%;
+}
+.sceditor-group {
+	background: var(--sceditor-group-bg);
+	border-color: var(--sceditor-group-border-color);
+	border-radius: var(--sceditor-group-border-radius);
+	border-style: var(--sceditor-group-border-style);
+	border-width: var(--sceditor-group-border-width);
+	display: inline-block;
+	margin: 2px 4px;
+	padding: 1px 2px;
+}
+.sceditor-button {
+	cursor: pointer;
+	padding: 3px 5px;
+	display: inline-block;
+	border-radius: 3px;
+}
+.sceditor-button.fa {
+	padding: 6px 8px;
+}
+.sceditor-button:not(.disabled):hover,
+.sceditor-button:active,
+.sceditor-button.active {
+	background: #fff;
+	box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 rgba(0, 0, 0, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sceditor-button:active {
+	background: #fff;
+	box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 rgba(0, 0, 0, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2), inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+.sceditor-button.disabled {
+	cursor: default;
+}
+.sceditor-button svg {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 2px 0;
+	fill: #111;
+	pointer-events: none;
+	line-height: 1;
+}
+.sceditor-button.disabled svg {
+	fill: #888;
+}
+.sceditor-button div {
+	margin: 2px 0;
+	padding: 0;
+	overflow: hidden;
+	line-height: 0;
+	font-size: 0;
+	color: transparent;
+}
+.sceditor-button.has-icon div {
+	display: none;
+}
+.sceditor-button.disabled div {
+	opacity: 0.3;
+}
+.text .sceditor-button,
+.text .sceditor-button div,
+.sceditor-button.text,
+.sceditor-button.text div,
+.text-icon .sceditor-button,
+.text-icon .sceditor-button div,
+.sceditor-button.text-icon,
+.sceditor-button.text-icon div {
+	display: inline-block;
+	width: auto;
+	line-height: 16px;
+	font-size: 1em;
+	color: inherit;
+	text-indent: 0;
+}
+.text-icon .sceditor-button.has-icon div,
+.sceditor-button.has-icon div,
+.text .sceditor-button div,
+.sceditor-button.text div {
+	padding: 0 2px;
+	background: none;
+}
+.text .sceditor-button svg,
+.sceditor-button.text svg {
+	display: none;
+}
+.text-icon .sceditor-button div,
+.sceditor-button.text-icon div {
+	padding: 0 2px 0 20px;
+}
+
+/* SMF buttons styles */
+.sceditor-button-pre div {
+	background-position: 0 -696px;
+}
+.sceditor-button-floatleft div {
+	background-position: 0px -680px;
+}
+.sceditor-button-floatright div {
+	background-position: 0px -664px;
+}
+.sceditor-button-font div::after,
+.sceditor-button-size div::after,
+.sceditor-button-color div::after {
+	border-top: 8px solid currentColor;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	content: "";
+	margin: 8px 4px;
+	opacity: 0.5;
+	position: absolute;
+	z-index: 1; 
+}
+.sceditor-font-picker,
+.sceditor-fontsize-picker,
+.sceditor-format,
+.sceditor-color-picker {
+	display: flex; 
+	gap: 2em;
+}
+.sceditor-insert-table {
+	display: flex; 
+	gap: 2em;
+}
+.sceditor-insert-table-grid {
+	display: grid;
+	grid-template: repeat(12, 2em) / repeat(12, 2em); 
+	gap: 0.5em;
+}
+.sceditor-insert-table .largetext {
+	opacity: 0.5;
+	margin-top: 5em;
+}
+#popup{background:#568d;height:100%;left:0;opacity:0;overflow:auto;position:fixed;top:0;transition:500ms all;visibility:hidden;width:100%;z-index:1000}#popup.show{opacity:1;transition:1s all;visibility:visible}#popup.show #popup-container{transform:scale(1) translateY(-50%);transition:500ms all}#popup-container{background:#fff;border-radius:0.4em;margin:0 auto;padding:1rem;position:relative;top:50%;transform:translateY(-200%);transition:500ms all;width:40%}#popup-container #close{background:none;border:none;height:32px;opacity:0.3;position:absolute;right:1em;top:1em;width:32px}#popup-container #close:hover{opacity:1}#popup-container #close::before,#popup-container #close::after{background:currentColor;content:'';height:26px;position:absolute;top:0;width:2px}#popup-container #close::before{transform:rotate(45deg)}#popup-container #close::after{transform:rotate(-45deg)}

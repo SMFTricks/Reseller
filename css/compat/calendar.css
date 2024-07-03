@@ -1,0 +1,399 @@
+/* Styles for the calendar section.
+------------------------------------------------- */
+#calendar {
+	display: grid;
+	gap: var(--calendar-gap);
+	grid: var(--calendar-grid);
+	overflow: hidden;
+}
+#calendar .windowbg {
+	--window-margin-block: 0;
+	--window-margin-inline: 0;
+}
+/* Used to indicate the current day in the grid. */
+#main_grid .calendar_today span.day_text,
+#month_grid .calendar_today span.day_text,
+.calendar_week tr.days_wrapper td.calendar_today:first-child {
+	font-weight: 700;
+}
+#month_grid {
+	overflow: hidden;
+	text-align: center;
+}
+#month_grid table {
+	border-collapse: collapse;
+	border-color: var(--window-border-color);
+	border-style: var(--window-border-style);
+	border-width: var(--window-border-width);
+	margin-block: var(--calendar-gap);
+	width: 100%;
+}
+#main_grid {
+	overflow: auto;
+}
+#main_grid table {
+	border-collapse: collapse;
+	border-color: var(--window-border-color);
+	border-style: var(--window-border-style);
+	border-width: var(--window-border-width);
+	margin: 1px 0 0 0;
+	overflow: auto;
+	width: 100%;
+}
+#month_grid tr {
+	align-items: stretch;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(1em, 1fr));
+	padding: 0;
+}
+#month_grid th {
+	align-self: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#month_grid td {
+	--window-border-width: 1px 1px 0 0;
+	--window-box-shadow: none;
+	align-items: center;
+	border-color: var(--window-border-color);
+	border-style: var(--window-border-style);
+	border-width: var(--window-border-width);
+	display: flex;
+	justify-content: center;
+}
+#month_grid td:first-child {
+	border-inline-start-width: 0;
+}
+#month_grid td:last-child {
+	border-inline-end-width: 0;
+}
+#month_grid th.days {
+	font-size: 0.65em;
+}
+#month_grid th.days,
+#month_grid td.weeks {
+	background: var(--calendar-th-bg);
+	padding: 2px;
+	text-align: center;
+}
+#month_grid td.weeks {
+	font-size: large;
+}
+#month_grid td.weeks a:hover {
+	text-decoration: underline;
+}
+h3.largetext {
+	font-size: large;
+}
+#main_grid h3.catbg span {
+	display: block;
+	font-size: 1.5em;
+	margin: -3px 4px 0 4px;
+}
+#main_grid th.days {
+	width: 14%;
+	padding: 5px 10px;
+	text-align: start;
+}
+#main_grid td.weeks {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.8em;
+	
+	padding: 5px;
+}
+#main_grid td.weeks a:hover {
+	text-decoration: none;
+}
+#main_grid td.days,
+#month_grid td.days {
+	vertical-align: top;
+	text-align: start;
+}
+#main_grid td.days {
+	padding: 5px;
+}
+#month_grid td.days {
+	background: var(--calendar-days-bg);
+	font-size: 0.8em;
+	padding: 0;
+	text-align: center;
+}
+#main_grid td.days:is(:hover, :focus, :focus-within),
+#main_grid td.weeks:is(:hover, :focus, :focus-within),
+#month_grid td.days:is(:hover, :focus, :focus-within),
+#month_grid td.weeks:is(:hover, :focus, :focus-within) {
+	background: var(--calendar-days-bg_hover);
+}
+#month_grid td a {
+	outline: none;
+}
+#month_grid td.days a {
+	display: block;
+	padding: 5px;
+}
+#month_grid td.days a:hover {
+	text-decoration: none;
+}
+#main_grid tr:not(.days_wrapper) th,
+#main_grid tr:not(.days_wrapper) td {
+	background: var(--window-bg);
+	min-height: 30px;
+}
+/* Alternate by column (regardless of position) */
+#month_grid td.windowbg {
+	background: var(--window-bg);
+}
+#month_grid td.windowbg:where(:nth-child(2n)) {
+	background: var(--window-even-bg);
+}
+/* Main Highlighting */
+#main_grid td.disabled,
+#month_grid td.disabled {
+	background: var(--calendar-disabled-bg);
+	border-inline-width: 0;
+}
+#main_grid td.calendar_today,
+#month_grid td.calendar_today {
+	background: var(--calendar-today-bg);
+}
+#main_grid td.calendar_today a,
+#month_grid td.calendar_today a {
+	color: var(--calendar-today-color);
+}
+#main_grid td.events,
+#month_grid td.events {
+	background: var(--calendar-event-bg);
+	color: var(--calendar-event-color);
+}
+#main_grid td.events a,
+#month_grid td.events a {
+	color: var(--calendar-event-color);
+}
+#main_grid td.holidays,
+#month_grid td.holidays {
+	background: var(--calendar-holiday-bg);
+	color: var(--calendar-holiday-color);
+}
+#main_grid td.holidays a,
+#month_grid td.holidays a {
+	color: var(--calendar-holiday-color);
+}
+#main_grid td.birthdays,
+#month_grid td.birthdays {
+	background: var(--calendar-birthday-bg);
+	color: var(--calendar-birthday-color);
+}
+#main_grid td.birthdays a,
+#month_grid td.birthdays a {
+	color: var(--calendar-birthday-color);
+}
+/* Special Case Highlighting */
+#main_grid td.disabled:is(:hover, :focus, :focus-within),
+#month_grid td.disabled:is(:hover, :focus, :focus-within) {
+	background: var(--calendar-disabled-bg);
+}
+#main_grid td.events:is(:hover, :focus, :focus-within),
+#month_grid td.events:is(:hover, :focus, :focus-within),
+#month_grid td.calendar_today.events {
+	background: var(--calendar-event-bg_hover);
+}
+#main_grid td.holidays:is(:hover, :focus, :focus-within),
+#month_grid td.holidays:is(:hover, :focus, :focus-within),
+#month_grid td.calendar_today.holidays {
+	background: var(--calendar-holiday-bg_hover);
+}
+#main_grid td.birthdays:is(:hover, :focus, :focus-within),
+#month_grid td.birthdays:is(:hover, :focus, :focus-within),
+#month_grid td.calendar_today.birthdays {
+	background: var(--calendar-birthday-bg_hover);
+}
+#calendar_range,
+#calendar_navigation {
+	padding: 5px 0;
+	text-align: center;
+	max-width: 50%;
+	margin: auto;
+}
+#main_grid .act_day {
+	font-size: 12pt;
+}
+div.week_month_title {
+	font-weight: bold;
+	font-size: xx-large;
+	margin: 0.8em 0 0.4em 0.15em;
+	line-height: 1.2em;
+}
+td.week_post {
+	vertical-align: middle !important;
+}
+span.hidelink {
+	font-style: italic;
+}
+#view_button {
+	margin-top: -2px;
+	margin-left: inherit;
+}
+#main_grid td.days,
+.calendar_week td.days {
+	height: 100px;
+	padding: 10px;
+}
+.modify_event:hover {
+	text-decoration: none;
+}
+.modify_event_links {
+	float: right;
+}
+.event_wrapper:not(:last-child) {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-color: var(--window-border-color);
+	border-style: var(--window-border-style);
+	border-width: 0 0 1px;
+}
+.event_time, .event_location {
+	color: vaR(--calendar_event_time_text_color);
+}
+.post_event_link {
+	vertical-align: middle;
+	height: 18px;
+	display: inline-block;
+}
+.active_post_event {
+	margin-top: 1em;
+}
+.calendar_top {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.calendar_top .buttonlist {
+	flex: 0 auto;
+}
+
+/* Break long words in calendar table cells to avoid layout problems */
+#main_grid td.days {
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	word-wrap: break-word; /* IE fallback */
+	overflow-wrap: break-word;
+}
+
+/* At less than 1024px wide, #main_grid needs all the space it can get */
+@media (max-width: 991px) {
+	#calendar {
+		--calendar-grid: auto / 1fr;
+	}
+}
+
+/* Small screens get the calendar in a vertical list */
+@media (max-width: 665px) {
+	#main_grid table {
+		border: none;
+		background: none;
+	}
+	#main_grid tr {
+		margin-bottom: 1em;
+	}
+	#main_grid tr:first-of-type {
+		display: none;
+	}
+	#main_grid tr:not(:first-of-type) {
+		display: block;
+	}
+	#main_grid td {
+		display: block;
+	}
+
+	#main_grid .calendar_table .days {
+		margin-top: 0;
+		height: auto;
+	}
+	#main_grid .calendar_table .days:not(.disabled) {
+		min-height: 45px;
+	}
+	#main_grid .calendar_table .weeks a::before {
+		content: attr(title);
+		font-size: 0.65em;
+		margin: 0 0.5em;
+		vertical-align: top;
+	}
+	#main_grid .calendar_table .weeks {
+		margin-top: 0;
+	}
+	#main_grid .calendar_week td {
+		margin: 0;
+		height: auto;
+		border: none !important;
+	}
+	#main_grid .calendar_week .event_col::before,
+	#main_grid .calendar_week .holiday_col::before,
+	#main_grid .calendar_week .birthday_col::before {
+		content: attr(data-css-prefix);
+	}
+	#main_grid .calendar_week .holiday_col:empty {
+		display: none;
+	}
+	#main_grid .calendar_week .birthday_col:empty {
+		display: none;
+	}
+	div.week_add_event {
+		display: inline-block;
+	}
+	div.week_add_event > a {
+		font-size: 1em;
+		text-decoration: underline;
+	}
+}
+
+@media (max-width: 639px) {
+	.calendar_top {
+		padding: 12px 8px;
+	}
+	#calendar_range,
+	#calendar_navigation {
+		max-width: none;
+	}
+}
+@media (max-width: 539px) {
+	#calendar_range {
+		clear: both;
+		padding: 10px 0 0;
+	}
+}
+@media (max-width: 479px) {
+	#calendar_navigation {
+		clear: both;
+		padding: 10px 0 0;
+	}
+}
+#geek-clock.bcd {
+	display: flex;
+	align-items: baseline;
+}
+#geek-clock.bcd > :nth-of-type(even) {
+	margin-inline: 0 20px;
+}
+#geek-clock.omfg li,
+#geek-clock.hms li,
+#geek-time li {
+	display: inline-block;;
+}
+#geek-clock li,
+#geek-time li {
+	width: 30px;
+	height: 30px;
+	border: solid 1px currentColor;
+	border-radius: 100%;
+	opacity: 0.6;
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	transform: scale(0.6);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}

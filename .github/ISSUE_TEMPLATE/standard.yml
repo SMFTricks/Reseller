@@ -1,0 +1,53 @@
+name: Bug Report
+description: Create a regular bug report
+labels: ["Pending Review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report, please describe the issue and provide as much information as possible.
+  - type: textarea
+    id: basic
+    attributes:
+      label: Basic Information
+      description: What is the issue?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Describe all steps needed to recreate the issue.
+      value: |
+        1.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should be the result of following those steps?
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What actually happens when you follow those steps?
+  - type: input
+    id: version
+    attributes:
+      label: Version/Git revision
+      description: What is the Theme version you are using? (You can find this info in the 'Theme Information' tab in Theme Settings)
+    validations:
+      required: true
+  - type: input
+    id: phpversion
+    attributes:
+      label: PHP Version
+      description: Your PHP version
+      placeholder: '8.0.0'
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Add any additional logs that may be useful, such as PHP error logs, SMF error logs, Database logs, Web Server logs
+      render: shell
