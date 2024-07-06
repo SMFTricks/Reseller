@@ -209,8 +209,8 @@ function template_main()
 				</div><!-- .topic_info -->
 				<div class="topic_stats">
 					<p>
-						', $txt['replies'], ': ', $topic['replies'], '<br>
-						', $txt['views'], ': ', $topic['views'], '
+						<strong>', $topic['replies'], '</strong> ', $txt['replies'], '<br>
+						<strong>', $topic['views'], '</strong> ', $txt['views'], '
 					</p>
 				</div>
 				<div class="topic_lastpost">

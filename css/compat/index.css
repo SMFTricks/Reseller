@@ -12,6 +12,7 @@ body {
 	flex-direction: column;
 	font-family: var(--body-font-family);
 	font-size: clamp(var(--body-font-size-min), var(--body-font-size), var(--body-font-size-max));
+	line-height: 1.2;
 	margin: 0;
 	min-height: 100dvh;
 	padding: 0;
@@ -3317,6 +3318,7 @@ div#manage_boards dl dd textarea[name=desc] {
 /* BoardIndex */
 /* This place covers board places (boardindex/messageindex) */
 .board_container {
+	--window-border-width: 0 1px 1px;
 	align-items: center;
 	background: var(--window-bg);
 	border-color: var(--window-border-color);
@@ -3328,8 +3330,8 @@ div#manage_boards dl dd textarea[name=desc] {
 	grid-template-columns: 70px 1fr 12% 28%;
 	padding-inline: .75em;
 }
-.board_container:not(:first-child) {
-	--window-border-width: 0 1px 1px;
+.board_container:first-child {
+	--window-border-width: 1px;
 }
 .board_container > :where(div) {
 	padding-block: .5em;
@@ -3399,7 +3401,7 @@ div#manage_boards dl dd textarea[name=desc] {
 .board_stats p {
 	border: none;
 	text-align: right;
-	font-weight: 600;
+	font-weight: 400;
 }
 .board_lastpost {
 	align-items: center;
@@ -3613,7 +3615,7 @@ div#manage_boards dl dd textarea[name=desc] {
 	border: none;
 	text-align: right;
 	font-size: .8em;
-	font-weight: 600;
+	font-weight: 400;
 }
 .topic_lastpost {
 	align-items: center;
