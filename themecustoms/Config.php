@@ -56,7 +56,7 @@ class Config extends Init
 	/**
 	 * @var string Custom Support URL
 	 */
-	protected string $supportURL = 'https://smftricks.com/index.php?board=559.0';
+	protected string $supportURL = 'https://smftricks.com/index.php?topic=559.0';
 
 	/**
 	 * @var bool Add the quick new topic button
