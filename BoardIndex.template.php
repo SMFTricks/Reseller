@@ -95,7 +95,7 @@ function template_main()
 		foreach ($category['boards'] as $board)
 		{
 			echo '
-				<div id="board_', $board['id'], '" class="board_container ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
+				<div id="board_', $board['id'], '" class="board_container sboard_', $board['board_class'], ' ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
 					<div class="board_icon">
 						', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_' . $board['type'] . '_icon', $board) : template_bi_board_icon($board), '
 					</div>
@@ -228,6 +228,7 @@ function template_ic_block_recent()
 	echo '
 		<div class="info_block_icon">
 			<a href="', $scripturl, '?action=recent"><span class="main_icons recent_posts"></span></a>
+			<span>', $txt['recent_posts'], '</span>
 		</div>
 		<div class="info_block_information">
 			<div id="recent_posts_content">';
@@ -283,6 +284,7 @@ function template_ic_block_calendar()
 	echo '
 		<div class="info_block_icon">
 			<a href="', $scripturl, '?action=calendar' . '"><span class="main_icons calendar"></span> ', '</a>
+			<span>', $txt['calendar'], '</span>
 		</div>
 		<div class="info_block_information">';
 
@@ -340,6 +342,7 @@ function template_ic_block_stats()
 	echo '
 		<div class="info_block_icon">
 			', $context['show_stats'] ? '<a href="' . $scripturl . '?action=stats" title="' . $txt['more_stats'] . '">' : '', '<span class="main_icons stats"></span> ', $context['show_stats'] ? '</a>' : '', '
+			<span>', $txt['forum_stats'], '</span>
 		</div>
 		<div class="info_block_information">
 			<p class="inline">
@@ -361,6 +364,7 @@ function template_ic_block_online()
 	echo '
 		<div class="info_block_icon">
 			', $context['show_who'] ? '<a href="' . $scripturl . '?action=who">' : '', '<span class="main_icons people"></span>', $context['show_who'] ? '</a>' : '', '
+			<span>', $txt['online_users'], '</span>
 		</div>
 		<div class="info_block_information">
 			<p class="inline">
