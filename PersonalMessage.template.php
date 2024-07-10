@@ -286,7 +286,7 @@ function template_single_pm($message)
 	global $context, $scripturl, $txt, $settings, $options, $modSettings;
 
 	echo '
-	<div class="windowbg" id="msg', $message['id'],'">
+	<div id="msg', $message['id'],'">
 		<div class="post_container">
 			<div class="poster">';
 
@@ -463,7 +463,7 @@ function template_single_pm($message)
 	// Done with the information about the poster... on to the post itself.
 	echo '
 			</div><!-- .poster -->
-			<div class="postarea">
+			<div class="postarea windowbg">
 				<div class="keyinfo">
 					<div id="subject_', $message['id'], '" class="subject_title">
 						<h5>', $message['subject'], '</h5>

@@ -476,7 +476,7 @@ function template_single_post($message)
 
 	// Show the message anchor and a "new" anchor if this message is new.
 	echo '
-				<div class="', $message['css_class'], '" id="msg' . $message['id'] . '">
+				<div id="msg' . $message['id'] . '">
 					', $message['id'] != $context['first_message'] ? '
 					' . ($message['first_new'] ? '<a id="new"></a>' : '') : '', '
 					<div class="post_container">';
@@ -668,7 +668,7 @@ function template_single_post($message)
 	// Poster info ends.
 	echo '
 						</div><!-- .poster -->
-						<div class="postarea">
+						<div class="postarea ', $message['css_class'], '">
 							<div class="keyinfo">';
 
 	// Some people don't want subject... The div is still required or quick edit breaks.
