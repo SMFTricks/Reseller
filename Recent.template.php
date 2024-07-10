@@ -213,7 +213,7 @@ function template_unread()
  */
 function template_replies()
 {
-	global $context, $txt, $scripturl, $modSettings, $board_info;
+	global $context, $txt, $scripturl, $modSettings, $board_info, $settings;
 
 	// User action pop on mobile screen (or actually small screen), this uses responsive css does not check mobile device.
 	if (!empty($context['recent_buttons']))
@@ -229,7 +229,7 @@ function template_replies()
 	</div>';
 
 	echo '
-	<div id="recent">
+	<div id="recent" class="main_content">
 		<div id="display_head" class="information">
 			<h2 class="display_title">
 				<span>', (!empty($board_info['name']) ? $board_info['name'] . ' - ' : '') . $context['page_title'], '</span>
@@ -247,127 +247,86 @@ function template_replies()
 	{
 		echo '
 			<div class="pagesection">
-				', $context['menu_separator'], '
-				<div class="pagelinks floatleft">
+				<div class="pagelinks">
 					<a href="#bot" class="button">', $txt['go_down'], '</a>
 					', $context['page_index'], '
 				</div>
-				', !empty($context['recent_buttons']) ? template_button_strip($context['recent_buttons'], 'right') : '';
-
-		// Mobile action (top)
-		if (!empty($context['recent_buttons']))
-			echo '
-				<div class="mobile_buttons floatright">
-					<a class="button mobile_act">', $txt['mobile_action'], '</a>
-				</div>';
-
-		echo '
+				', !empty($context['recent_buttons']) ? template_button_strip($context['recent_buttons'], 'right') : '', '
 			</div>';
 
 		echo '
-			<div id="unreadreplies">
-				<div id="topic_header" class="title_bar">
-					<div class="board_icon"></div>
-					<div class="info">
-						<a href="', $scripturl, '?action=unreadreplies', $context['querystring_board_limits'], ';sort=subject', $context['sort_by'] === 'subject' && $context['sort_direction'] === 'up' ? ';desc' : '', '">', $txt['subject'], $context['sort_by'] === 'subject' ? ' <span class="main_icons sort_' . $context['sort_direction'] . '"></span>' : '', '</a>
-					</div>
-					<div class="board_stats centertext">
-						<a href="', $scripturl, '?action=unreadreplies', $context['querystring_board_limits'], ';sort=replies', $context['sort_by'] === 'replies' && $context['sort_direction'] === 'up' ? ';desc' : '', '">', $txt['replies'], $context['sort_by'] === 'replies' ? ' <span class="main_icons sort_' . $context['sort_direction'] . '"></span>' : '', '</a>
-					</div>
-					<div class="lastpost">
-						<a href="', $scripturl, '?action=unreadreplies', $context['querystring_board_limits'], ';sort=last_post', $context['sort_by'] === 'last_post' && $context['sort_direction'] === 'up' ? ';desc' : '', '">', $txt['last_post'], $context['sort_by'] === 'last_post' ? ' <span class="main_icons sort_' . $context['sort_direction'] . '"></span>' : '', '</a>
-					</div>';
-
-		// Show a "select all" box for quick moderation?
-		if ($context['showCheckboxes'])
-			echo '
-					<div class="moderation">
-						<input type="checkbox" onclick="invertAll(this, this.form, \'topics[]\');">
-					</div>';
-
-		echo '
-				</div><!-- #topic_header -->
-				<div id="topic_container">';
+			<div id="unreadreplies">';
 
 		foreach ($context['topics'] as $topic)
 		{
 			echo '
-					<div class="', $topic['css_class'], '">
-						<div class="board_icon">
-							<img src="', $topic['first_post']['icon_url'], '" alt="">
-							', $topic['is_posted_in'] ? '<span class="main_icons profile_sm"></span>' : '', '
-						</div>
-						<div class="info">';
+				<div class="topic_container ', $topic['css_class'], '">
+					<div class="topic_icon">
+						<img src="', $topic['first_post']['icon_url'], '" alt="">
+						', $topic['is_posted_in'] ? '<span class="main_icons profile_sm"></span>' : '', '
+					</div>
+					<div class="topic_info">';
 
 			// Now we handle the icons
 			echo '
-							<div class="icons floatright">';
+						<div class="icon">';
 
 			if ($topic['is_locked'])
 				echo '
-								<span class="main_icons lock"></span>';
+							<span class="main_icons lock"></span>';
 
 			if ($topic['is_sticky'])
 				echo '
-								<span class="main_icons sticky"></span>';
+							<span class="main_icons sticky"></span>';
 
 			if ($topic['is_poll'])
 				echo '
-								<span class="main_icons poll"></span>';
+							<span class="main_icons poll"></span>';
 
 			echo '
-							</div>';
-
-			echo '
-							<div class="recent_title">
-								<a href="', $topic['new_href'], '" id="newicon', $topic['first_post']['id'], '" class="new_posts">' . $txt['new'] . '</a>
-								', $topic['is_sticky'] ? '<strong>' : '', '<span title="', $topic[(empty($modSettings['message_index_preview_first']) ? 'last_post' : 'first_post')]['preview'], '"><span id="msg_' . $topic['first_post']['id'] . '">', $topic['first_post']['link'], '</span>', $topic['is_sticky'] ? '</strong>' : '', '
-							</div>
-							<p class="floatleft">
-								', $topic['first_post']['started_by'], '
-							</p>
-							', !empty($topic['pages']) ? '<span id="pages' . $topic['first_post']['id'] . '" class="topic_pages">' . $topic['pages'] . '</span>' : '', '
-						</div><!-- .info -->
-						<div class="board_stats centertext">
-							<p>
-								', $topic['replies'], ' ', $txt['replies'], '
-								<br>
-								', $topic['views'], ' ', $txt['views'], '
-							</p>
-						</div>
-						<div class="lastpost">
-							', sprintf($txt['last_post_topic'], '<a href="' . $topic['last_post']['href'] . '">' . $topic['last_post']['time'] . '</a>', $topic['last_post']['member']['link']), '
 						</div>';
+
+			echo '
+						<div class="topic_title">
+							<a href="', $topic['new_href'], '" id="newicon', $topic['first_post']['id'], '" class="new_posts">' . $txt['new'] . '</a>
+								', $topic['is_sticky'] ? '<strong>' : '', '<span title="', $topic[(empty($modSettings['message_index_preview_first']) ? 'last_post' : 'first_post')]['preview'], '"><span id="msg_' . $topic['first_post']['id'] . '">', $topic['first_post']['link'], '</span>', $topic['is_sticky'] ? '</strong>' : '', '
+						</div>
+						<p class="started_by">
+							', $topic['first_post']['started_by'], '
+						</p>
+						', !empty($topic['pages']) ? '<span id="pages' . $topic['first_post']['id'] . '" class="pagelinks">' . $topic['pages'] . '</span>' : '', '
+					</div><!-- .topic_info -->
+					<div class="topic_stats">
+						<p>
+							', $topic['replies'], ' ', $txt['replies'], '<br>
+							', $topic['views'], ' ', $txt['views'], '
+						</p>
+					</div>
+					<div class="topic_lastpost">
+						', !empty($settings['st_enable_avatars_topics']) && !empty($topic['last_post']['member']['avatar']) ? themecustoms_avatar($topic['last_post']['member']['avatar']['href'], $topic['last_post']['member']['id']) : '', '
+						<p>
+							', $txt['last_post'], ': ', $topic['last_post']['member']['link'], ', <a href="',  $topic['last_post']['href'], '">', $topic['last_post']['time'], '</a>
+						</p>
+					</div>';
 
 			if ($context['showCheckboxes'])
 				echo '
-						<div class="moderation">
-							<input type="checkbox" name="topics[]" value="', $topic['id'], '">
-						</div>';
+					<div class="topic_moderation">
+						<input type="checkbox" name="topics[]" value="', $topic['id'], '">
+					</div>';
 
 			echo '
-					</div><!-- $topic[css_class] -->';
+				</div><!-- #topic_container -->';
 		}
 
 		echo '
-				</div><!-- #topic_container -->
 			</div><!-- #unreadreplies -->
 			<div class="pagesection">
-				', !empty($context['recent_buttons']) ? template_button_strip($context['recent_buttons'], 'right') : '', '
-				', $context['menu_separator'], '
 				<div class="pagelinks floatleft">
 					<a href="#recent" class="button">', $txt['go_up'], '</a>
 					', $context['page_index'], '
-				</div>';
-
-		// Mobile action (bottom)
-		if (!empty($context['recent_buttons']))
-			echo '
-				<div class="mobile_buttons floatright">
-					<a class="button mobile_act">', $txt['mobile_action'], '</a>
-				</div>';
-
-		echo '
+				</div>
+				', !empty($context['recent_buttons']) ? template_button_strip($context['recent_buttons'], 'right') : '', '
 			</div>';
 	}
 	else
