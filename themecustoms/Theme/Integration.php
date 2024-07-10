@@ -119,7 +119,7 @@ class Integration
 		add_integration_function('integrate_display_buttons', 'ThemeCustoms\Integrations\Buttons::display', false, $this->config->dir . '/themecustoms/Integrations/Buttons.php', true);
 		add_integration_function('integrate_prepare_display_context', 'ThemeCustoms\Integrations\Buttons::quick', false, $this->config->dir . '/themecustoms/Integrations/Buttons.php', true);
 		add_integration_function('integrate_messageindex_buttons', 'ThemeCustoms\Integrations\Buttons::message', false, $this->config->dir . '/themecustoms/Integrations/Buttons.php', true);
-		add_integration_function('integrate_recent_buttons', 'ThemeCustoms\Integrations\Buttons::unraed', false, $this->config->dir . '/themecustoms/Integrations/Buttons.php', true);
+		add_integration_function('integrate_recent_buttons', 'ThemeCustoms\Integrations\Buttons::unread', false, $this->config->dir . '/themecustoms/Integrations/Buttons.php', true);
 		add_integration_function('integrate_memberlist_buttons', 'ThemeCustoms\Integrations\Buttons::memberlist', false, $this->config->dir . '/themecustoms/Integrations/Buttons.php', true);
 		add_integration_function('integrate_mark_read_button', 'ThemeCustoms\Integrations\InfoCenter::init', false, $this->config->dir . '/themecustoms/Integrations/InfoCenter.php', true);
 		add_integration_function('integrate_modification_types', 'ThemeCustoms\Integrations\Packages::types', false, $this->config->dir . '/themecustoms/Integrations/Packages.php', true);
