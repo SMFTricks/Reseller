@@ -478,7 +478,17 @@
 	--profilelinks-item-bg:                           var(--dropmenu-an-bg);
 	--profilelinks-item-bg_focus:                     var(--dropmenu-an-bg_focus);
 	--profilelinks-item-bg_hover:                     var(--dropmenu-an-bg_hover);
+	--profilelinks-item-border-color:                 var(--dropmenu-an-border-color);
+	--profilelinks-item-border-color_focus:           var(--dropmenu-an-border-color_hover);
+	--profilelinks-item-border-color_hover:           var(--dropmenu-an-border-color);
 	--profilelinks-item-border-radius:                var(--dropmenu-an-border-radius);
+	--profilelinks-item-border-style:                 var(--dropmenu-an-border-style);
+	--profilelinks-item-border-width:                 var(--dropmenu-an-border-width);
+	--profilelinks-item-border-width_focus:           var(--dropmenu-an-border-width_hover);
+	--profilelinks-item-border-width_hover:           var(--dropmenu-an-border-width);
+	--profilelinks-item-box-shadow:                   var(--dropmenu-an-box-shadow);
+	--profilelinks-item-box-shadow_focus:             var(--dropmenu-an-box-shadow_hover);
+	--profilelinks-item-box-shadow_hover:             var(--dropmenu-an-box-shadow);
 	--profilelinks-item-color:                        var(--dropmenu-an-color);
 	--profilelinks-item-color_focus:                  var(--dropmenu-a1-color_focus);
 	--profilelinks-item-color_hover:                  var(--dropmenu-an-color_hover);

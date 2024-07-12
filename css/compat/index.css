@@ -1206,6 +1206,7 @@ ol.profile_user_links {
 	border-radius: var(--profilelinks-item-border-radius);
 	border-style: var(--profilelinks-item-border-style);
 	border-width: var(--profilelinks-item-border-width);
+	box-shadow: var(--profilelinks-item-box-shadow);
 	color: var(--profilelinks-item-color);
 	display: flex;
 	font-family: var(--profilelinks-item-font-family);
@@ -1223,6 +1224,7 @@ ol.profile_user_links {
 	background: var(--profilelinks-item-bg_hover);
 	border-color: var(--profilelinks-item-border-color_hover);
 	border-width: var(--profilelinks-item-border-width_hover);
+	box-shadow: var(--profilelinks-item-box-shadow_hover);
 	color: var(--profilelinks-item-color_hover);
 	font-weight: var(--profilelinks-item-font-weight_hover);
 	text-decoration: var(--profilelinks-item-text-decoration_hover);
@@ -1233,6 +1235,7 @@ ol.profile_user_links {
 	background: var(--profilelinks-item-bg_focus);
 	border-color: var(--profilelinks-item-border-color_focus);
 	border-width: var(--profilelinks-item-border-width_focus);
+	box-shadow: var(--profilelinks-item-box-shadow_focus);
 	color: var(--profilelinks-item-color_focus);
 	font-weight: var(--profilelinks-item-font-weight_focus);
 	text-decoration: var(--profilelinks-item-text-decoration_focus);

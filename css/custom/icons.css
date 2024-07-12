@@ -112,10 +112,8 @@ h3.profile_hd::before,
 .main_icons.posters::before {
 	content: "\f091";
 }
-/* Replies */
-/* Im On */
-.main_icons.replies::before,
-.main_icons.topics_replies::before {
+/* Comment */
+.main_icons.comment::before {
 	content: "\f4ad";
 }
 /* History */
@@ -422,9 +420,8 @@ h3.profile_hd::before,
 }
 /* All Unread */
 .main_icons.unread::before,
-.main_icons.mark_unread::before,
 .main_icons.unread_topics_all::before {
-	content: "\f424";
+	content: "\f0ae";
 }
 /* Mark Not Read */
 .main_icons.mark_unread::before,
@@ -545,7 +542,8 @@ h3.profile_hd::before,
 	content: "\e4e8";
 }
 /* Posts */
-.fa-posts::before {
+.main_icons.posts::before,
+.main_icons.replies::before {
 	content: "\f086";
 }
 /* Drafts */
