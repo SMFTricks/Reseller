@@ -108,13 +108,16 @@ function template_body_above()
 {
 	global $context, $settings, $scripturl, $txt, $modSettings, $maintenance;
 
+	// Show the menu here
+	template_menu();
+
 	// Header
 	echo '
 	<header id="header">
 		<div class="content-wrapper">
 			<h1 class="forumtitle">
 				<a id="top" href="', $scripturl, '">
-					', empty($context['header_logo_url_html_safe']) ? '<img id="smflogo" src="' . $settings['images_url'] . '/smflogo.svg" alt="Simple Machines Forum" title="Simple Machines Forum">' : '<img src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name_html_safe'] . '">', '
+					<img src="', empty($context['header_logo_url_html_safe']) ? $settings['images_url'] . '/theme/logo.png' : $context['header_logo_url_html_safe'],  '" alt="' . $context['forum_name_html_safe'] . '">', '
 				</a>
 				', empty($settings['site_slogan']) ? '' : '<span id="siteslogan">' . $settings['site_slogan'] . '</span>', '
 			</h1>';
@@ -154,6 +157,22 @@ function template_body_above()
 					<div id="alerts_menu" class="top_menu scroll"></div>
 				</li>';
 
+		// Unread and Unread Replies
+		echo '
+				<li>
+					<a href="', $scripturl, '?action=unread"', $context['current_action'] == 'unread' ? ' class="active"' : '',' title="', $txt['unread_since_visit'],'">
+						<span class="main_icons unread"></span>
+						<span class="text-label">', $txt['view_unread_category'], '</span>
+					</a>
+				</li>
+				<li>
+					<a href="', $scripturl, '?action=unreadreplies"', $context['current_action'] == 'unreadreplies' ? ' class="active"' : '',' title="', $txt['show_unread_replies'],'">
+						<span class="main_icons replies"></span>
+						<span class="text-label">', $txt['unread_replies'], '</span>
+					</a>
+				</li>';
+		
+
 		// The user's menu
 		echo '
 				<li>
@@ -187,7 +206,7 @@ function template_body_above()
 		} else {
 			echo '
 				<li class="button_login">
-					<a href="', $scripturl, '?action=login" class="', $context['current_action'] == 'login' ? 'active' : 'open','" onclick="return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');" title="', $txt['login'],'">
+					<a href="', $scripturl, '?action=login" class="', $context['current_action'] == 'login' ? 'active' : '','" onclick="return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');" title="', $txt['login'],'">
 						<span class="main_icons login"></span>
 						<span class="text-label">', $txt['login'], '</span>
 					</a>
@@ -197,7 +216,7 @@ function template_body_above()
 				echo '
 				<li class="button_signup">
 					<a href="', $scripturl, '?action=signup" class="', $context['current_action'] == 'signup' ? 'active' : 'open','" title="', $txt['register'],'">
-						<span class="main_icons signpu"></span>
+						<span class="main_icons signup"></span>
 						<span class="text-label">', $txt['register'], '</span>
 					</a>
 				</li>';
@@ -216,8 +235,7 @@ function template_body_above()
 		</div><!-- .content-wrapper -->
 	</header><!-- header -->';
 
-	// Show the menu here
-	template_menu();
+	theme_linktree();
 
 	echo '
 	<div class="content-wrapper">';
@@ -230,8 +248,6 @@ function template_body_above()
 			<h2>', $txt['news'], ': </h2>
 			<p>', $context['random_news_line'], '</p>
 		</div>';
-
-		theme_linktree();
 
 		!function_exists('themecustoms_carousel') ? '' : themecustoms_carousel();
 
@@ -258,6 +274,9 @@ function template_body_below()
 	echo '
 	<footer id="footer">
 		<div class="content-wrapper">';
+
+	// Socials
+	themecustoms_socials();
 
 	// There is now a global "Go to top" link at the right.
 	echo '
@@ -310,20 +329,21 @@ function theme_linktree($force_show = false)
 
 	echo '
 		<nav aria-label="', $txt['st_breadcrumb'], '" class="navigate_section">
-			<ul>';
+			<div class="content-wrapper">
+				<ul>';
 
 	// Each tree item has a URL and name. Some may have extra_before and extra_after.
 	foreach ($context['linktree'] as $link_num => $tree)
 	{
 		echo '
-				<li', ($link_num == count($context['linktree']) - 1) ? ' class="last"' : '', '>';
+					<li', ($link_num == count($context['linktree']) - 1) ? ' class="last"' : '', '>';
 
 		// Don't show a separator for the first one.
 		// Better here. Always points to the next level when the linktree breaks to a second line.
 		// Picked a better looking HTML entity, and added support for RTL plus a span for styling.
 		if ($link_num != 0)
 			echo '
-					<span class="dividers"><i class="fa-solid fa-angle-', $context['right_to_left'] ? 'left' : 'right', '"></i></span>';
+						<span class="dividers"><i class="fa-solid fa-angle-', $context['right_to_left'] ? 'left' : 'right', '"></i></span>';
 
 		// Show something before the link?
 		if (isset($tree['extra_before']))
@@ -332,21 +352,22 @@ function theme_linktree($force_show = false)
 		// Show the link, including a URL if it should have one.
 		if (isset($tree['url']))
 			echo '
-					<a href="' . $tree['url'] . '"><span>' . $tree['name'] . '</span></a>';
+						<a href="' . $tree['url'] . '"><span>' . $tree['name'] . '</span></a>';
 		else
 			echo '
-					<span>' . $tree['name'] . '</span>';
+						<span>' . $tree['name'] . '</span>';
 
 		// Show something after the link...?
 		if (isset($tree['extra_after']))
 			echo ' ', $tree['extra_after'];
 
 		echo '
-				</li>';
+					</li>';
 	}
 
 	echo '
-			</ul>
+				</ul>
+			</div>
 		</nav><!-- .navigate_section -->';
 
 	$shown_linktree = true;
@@ -432,22 +453,7 @@ function template_menu()
 	}
 
 	echo '
-				</ul><!-- .navbar-nav -->';
-
-	// Unread buttons
-	if ($context['user']['is_logged']) {
-		echo '
-				<ul class="dropmenu">
-					<li>
-						<a href="', $scripturl, '?action=unread" title="', $txt['unread_since_visit'], '">', $txt['view_unread_category'], '</a>
-					</li>
-					<li>
-						<a href="', $scripturl, '?action=unreadreplies" title="', $txt['show_unread_replies'], '">', $txt['unread_replies'], '</a>
-					</li>
-				</ul>';
-	}
-
-	echo '
+				</ul><!-- .navbar-nav -->
 			</div>
 		</div>
 	</nav>';
