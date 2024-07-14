@@ -2,17 +2,16 @@
 Free & Premium Themes for SMF
 [/center]
 
-[b][size=5]NameX[/size][/b]
-[size=2]Developed by: [url="https://smftricks.com/index.php?action=profile;u=1"]Diego Andrés[/url][/size]
-[size=2]Designed by: [url="https://smftricks.com/index.php?action=profile;u=17"]Harold Zapata[/url][/size]
+[b][size=5]Reseller[/size][/b]
+[size=2]Developed by [url="https://smftricks.com/index.php?action=profile;u=2"]Daniiel[/url] and [url="https://smftricks.com/index.php?action=profile;u=1"]Diego Andrés[/url][/size]
 
-[img]https://img.shields.io/github/v/release/SMFTricks/NameX.svg?style=flat&logo=github&color=green[/img] [img]https://img.shields.io/badge/License-MIT-248049[/img] [img]https://img.shields.io/badge/SMF-2.1-3f73a0[/img] [img]https://img.shields.io/badge/Color%20Variants-Yes-6041a3[/img] [img]https://img.shields.io/badge/Dark%20Mode-Yes-4d827f[/img] [img]https://img.shields.io/badge/RLT%20Support-Yes-bf9d73[/img]
+[img]https://img.shields.io/github/v/release/SMFTricks/Reseller.svg?style=flat&logo=github&color=green[/img] [img]https://img.shields.io/badge/License-MIT-248049[/img] [img]https://img.shields.io/badge/SMF-2.1-3f73a0[/img] [img]https://img.shields.io/badge/RLT%20Support-Yes-bf9d73[/img]
 
 [float=right max=40%]
 
 Preview:
-[img width=350]https://raw.githubusercontent.com/SMFTricks/NameX/main/_assets/preview.gif[/img]
-[url=http://demo21.smftricks.com/index.php?theme=4]Demo Online[/url]
+[img width=350]https://raw.githubusercontent.com/SMFTricks/Reseller/master/_assets/preview.png[/img]
+[url=http://demo21.smftricks.com/index.php?theme=10]Demo Online[/url]
 [/float]
 [color=#2346CD][size=4]☑️ Features[/size][/color]
 [list]
@@ -39,6 +38,7 @@ Preview:
 [/list]
 [/li]
 [li][font=Sans-serif]Select CDN for Fonts[/font][/li]
+[li][font=Sans-serif]Quick New Topic Button[/font][/li]
 [/list]
 
 [color=#bf307a][size=4]📦 Installation[/size][/color]
@@ -50,4 +50,4 @@ You can find detailed instructions and/or more documentation about the process i
 Translations are all based off the [i][url=https://github.com/SMFTricks/Theme-Customs]Theme Customs[/url][/i] strings, and you can contribute directly on [b][url=https://crowdin.com/project/smf-theme-customs]Crowdin[/url][/b].
 
 [color=#cc5d31][size=4]🔨 Changelog[/size][/color]
-Review the changes and patches from the different releases/versions of the package in the [url=https://github.com/SMFTricks/NameX/blob/main/CHANGELOG.md]Changelog[/url]
+Review the changes and patches from the different releases/versions of the package in the [url=https://github.com/SMFTricks/Reseller/blob/master/CHANGELOG.md]Changelog[/url]
