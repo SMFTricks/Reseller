@@ -1230,9 +1230,11 @@ a.moderation_link {
 
 /** Post View **/
 .post_container {
+	align-items: flex-start;
 	gap: 3em;
 
-	.windowbg {
+	.windowbg,
+	.approvebg, .approvebg2 {
 		margin: 0;
 		position: relative;
 
@@ -1240,15 +1242,15 @@ a.moderation_link {
 		&::before {
 			background: var(--window-bg);
 			content: "";
-			height: 35px;
-			inset-block: 3.25em auto;
+			height: 30px;
+			inset-block: 1em auto;
 			inset-inline: -15px auto;
 			position: absolute;
 			transform: skew(45deg, 0);
-			width: 35px;
+			width: 50px;
 		}
 		&::after {
-			margin-block-start: 35px;
+			margin-block-start: 30px;
 		}
 		&::before {
 			transform: skew(-45deg, 0);
@@ -1256,6 +1258,9 @@ a.moderation_link {
 		& > * {
 			position: relative;
 			z-index: 2;
+		}
+		&.postarea {
+			padding: .5em 1em !important;
 		}
 	}
 }

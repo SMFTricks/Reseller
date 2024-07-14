@@ -556,50 +556,50 @@ function template_single_pm($message)
 
 	echo '
 				</div><!-- .under_message -->
-			</div><!-- .postarea -->
-			<div class="moderatorbar">';
+				<div class="moderatorbar">';
 
 	// Are there any custom profile fields for above the signature?
 	if (!empty($message['custom_fields']['above_signature']))
 	{
 		echo '
-				<div class="custom_fields_above_signature">
-					<ul class="nolist">';
+					<div class="custom_fields_above_signature">
+						<ul class="nolist">';
 
 		foreach ($message['custom_fields']['above_signature'] as $custom)
 			echo '
-						<li class="custom ', $custom['col_name'], '">', $custom['value'], '</li>';
+							<li class="custom ', $custom['col_name'], '">', $custom['value'], '</li>';
 
 		echo '
-					</ul>
-				</div>';
+						</ul>
+					</div>';
 	}
 
 	// Show the member's signature?
 	if (!empty($message['member']['signature']) && empty($options['show_no_signatures']) && $context['signature_enabled'])
 		echo '
-				<div class="signature">
-					', $message['member']['signature'], '
-				</div>';
+					<div class="signature">
+						', $message['member']['signature'], '
+					</div>';
 
 	// Are there any custom profile fields for below the signature?
 	if (!empty($message['custom_fields']['below_signature']))
 	{
 		echo '
-				<div class="custom_fields_below_signature">
-					<ul class="nolist">';
+					<div class="custom_fields_below_signature">
+						<ul class="nolist">';
 
 		foreach ($message['custom_fields']['below_signature'] as $custom)
 			echo '
-						<li class="custom ', $custom['col_name'], '">', $custom['value'], '</li>';
+							<li class="custom ', $custom['col_name'], '">', $custom['value'], '</li>';
 
 		echo '
-					</ul>
-				</div>';
+						</ul>
+					</div>';
 	}
 
 	echo '
-			</div><!-- .moderatorbar -->
+				</div><!-- .moderatorbar -->
+			</div><!-- .postarea -->
 		</div><!-- .post_container -->
 	</div><!-- .windowbg -->';
 }
