@@ -5,24 +5,174 @@
 
 	/** Edits **/
 
+	/** Primary Color **/
+	--primary-color-hex:                               #34495E;
+	--primary-color-hue:                               210;
+	--primary-color-50:                                hsl(var(--primary-color-hue), 100%, 95%);
+	--primary-color-100:                               hsl(var(--primary-color-hue), 47%, 85%);
+	--primary-color-200:                               hsl(var(--primary-color-hue), 33%, 75%);
+	--primary-color-300:                               hsl(var(--primary-color-hue), 28%, 65%);
+	--primary-color-400:                               hsl(var(--primary-color-hue), 25%, 57%);
+	--primary-color-500:                               hsl(var(--primary-color-hue), 24%, 50%);
+	--primary-color-600:                               hsl(var(--primary-color-hue), 25%, 44%);
+	--primary-color-700:                               hsl(var(--primary-color-hue), 27%, 36%);
+	--primary-color-800:                               var(--primary-color-hex);
+	--primary-color-900:                               hsl(var(--primary-color-hue), 35%, 20%);
+
+	/** Secondary Color **/
+	--secondary-color-hex:                            #00c251;
+	--secondary-color-hue:                            145;
+	--secondary-color-50:                             hsl(var(--secondary-color-hue), 58%, 94%);
+	--secondary-color-100:                            hsl(var(--secondary-color-hue), 56%, 84%);
+	--secondary-color-200:                            hsl(var(--secondary-color-hue), 56%, 73%);
+	--secondary-color-300:                            hsl(var(--secondary-color-hue), 59%, 61%);
+	--secondary-color-400:                            hsl(var(--secondary-color-hue), 63%, 49%);
+	--secondary-color-500:                            var(--secondary-color-hex);
+	--secondary-color-600:                            hsl(var(--secondary-color-hue), 100%, 35%);
+	--secondary-color-700:                            hsl(var(--secondary-color-hue), 100%, 31%);
+	--secondary-color-800:                            hsl(var(--secondary-color-hue), 100%, 28%);
+	--secondary-color-900:                            hsl(var(--secondary-color-hue), 100%, 22%);
+
+	/** Body **/
+	--body-bg:                                        #EEE;
+
+	/** Body Links **/
+	--body-link-color:                                hsl(var(--primary-color-hue), 29%, 30%);
+	--body-link-color_hover:                          hsl(var(--primary-color-hue), 85%, 25%);
+
+	/** Wrapper **/
+	--wrapper-width:                                  1400px;
+
+	/** AMT **/
+	--amt-bg:                                         var(--secondary-color-500);
+	--amt-font-size:                                  .8em;
+	--amt-height:                                     2em;
+
+	/** Navigate Section **/
+	--navigatesection-bg:                             #fff;
+	--navigatesection-border-radius:                  0;
+	--navigatesection-border-width:                   0;
+
+	/** Breadcrumb **/
+	--breadcrumb-border-radius:                       0;
+	--breadcrumb-box-shadow:                          none;
+
+	/** Section Head **/
+	--sectionhead-bg:                                 transparent;
+	--sectionhead-border-radius:                      .25em;
+	--sectionhead-border-width:                       0;
+	--sectionhead-title-font-size:                    2em;
+
+	/** New **/
+	--new-bg:                                         var(--primary-color-300);
+
+	/** Button **/
+	--button-bg:                                      hsl(var(--primary-color-hue), 56%, 43%);;
+	--button-bg_hover:                                hsl(var(--primary-color-hue), 52%, 35%);
+	--button-border-color:                            var(--primary-color-100);
+	--button-color:                                   white;
+	--button-color_hover:                             white;
+	--button-font-size:                               .65em;
+	--button-height:                                  3em;
+
+	/** Header **/
+	--header-bg:                                      #3498db;
+	--header-box-shadow:                              0 -3px hsl(var(--primary-color-hue), 51%, 75%) inset;
+	--header-height:                                  6.75em;
+
+	/** Top Info **/
+	--topinfo-bg_active:                              hsl(var(--primary-color-hue) 25% 85% / 65%);
+	--topinfo-bg_focus:                               var(--primary-color-100);
+	--topinfo-border-color_focus:                     transparent;
+	--topinfo-border-color_hover:                     transparent transparent var(--primary-color-50);
+	--topinfo-color:                                  var(--primary-color-900);
+	--topinfo-color_active:                           var(--primary-color-900);
+	--topinfo-color_focus:                            var(--primary-color-800);
+	--topinfo-color_hover:                            var(--primary-color-50);
+	--topinfo-font-size:                              1.15em;
+	--topinfo-height:                                 2em;
+	--topinfo-text-shadow_hover:                      0px 0px 2px rgba(0, 0, 0, .8);
+
+	/** Footer **/
+	--footer-bg:                                      var(--primary-color-800);
+
+	/** Catbar **/
+	--catbar-bg:                                      hsl(var(--primary-color-hue), 29%, 29%);
+	--catbar-border-radius:                           0;
+	--catbar-font-size:                               .8em;
+	--catbar-height:                                  2.25em;
+
+	/** Titlebar **/
+	--titlebar-bg:                                    var(--secondary-color-500);
+	--titlebar-border-width:                          0;
+	--titlebar-color:                                 #fff;
+	--titlebar-text-shadow:                           var(--titlebg-text-shadow);
+
+	/** Titlebg **/
+	--titlebg-color:                                  #fff;
+	--titlebg-text-shadow:                            0px 0px 5px rgba(0, 0, 0, .5);
+
+	/** Poster **/
+	--poster-bg:                                      var(--window-bg);
+
+	/** Window **/
+	--window-bg:                                      #f5f5f5;
+	--window-border-color:                            hsl(var(--primary-color-hue), 35%, 88%);
+	--window-border-radius:                           .4em;
+	--window-border-width:                            0;
+	--window-box-shadow:                              none;
+	--window-even-bg:                                 #f3f3f3;
+
+	/** Buttonlist **/
+	--buttonlist-link-bg:                             hsl(var(--primary-color-hue), 8%, 88%);
+	--buttonlist-link-bg_active:                      var(--secondary-color-500);
+	--buttonlist-link-bg_hover:                       hsl(var(--primary-color-hue), 12%, 82%);
+	--buttonlist-link-color_active:                   #fff;
+	--buttonlist-link-font-size:                      .9em;
+	--buttonlist-link-color_active_hover:             var(--buttonlist-link-color_active);
+	--buttonlist-link-text-shadow_active:             0px 0px 5px rgba(0, 0, 0, .5);
+
+	/** Generic Menu **/
+	--genericmenu-bg:                                 hsl(var(--primary-color-hue), 35%, 94%);
+	--genericmenu-border-radius:                      .25em;
+
+	/** Dropmenu 1 level links **/
+	--dropmenu-a1-bg_active:                          var(--secondary-color-300);
+	--dropmenu-a1-border-radius:                      .5em;
+	--dropmenu-a1-color:                              var(--primary-color-900);
+
+	/** Dropmenu n level links **/
+	--dropmenu-an-bg_hover:                           hsl(var(--primary-color-hue), 7%, 88%);
+
+	/** Profile Links **/
+	--profilelinks-grid:                              auto / 1fr;
+	--profilelinks-item-font-size:                    .9em;
+
+	/** Dropdown Child **/
+	--dropmenu-child-border-radius:                   0;
+
+	/** Dropdown Child Links **/
+	--dropmenu-an-border-radius:                      0;
+
 	/** Custom Theme **/
 	--st-avatar-size:                                 65px;
 	--st-carousel-height:                             350px;
 
 	/** Bootstrap Main Nav **/
-	--st-nav-bg:                                      var(--primary-color-700);
+	--st-nav-bg:                                      hsl(var(--primary-color-hue), 6%, 16%);
 	--st-nav-border-color:                            hsl(var(--primary-color-hue), 16%, 81%);
 	--st-nav-border-radius:                           0;
 	--st-nav-border-style:                            solid;
-	--st-nav-border-width:                            1px;
+	--st-nav-border-width:                            0;
+	--st-nav-box-shadow:                              0 -3px #222427 inset;
 
 	/** Bootstrap Main Nav Links **/
 	--st-nav-a1-bg:                                   transparent;
-	--st-nav-a1-bg_active:                            #fff;
+	--st-nav-a1-bg_active:                            hsl(var(--primary-color-hue), 14%, 19%);
 	--st-nav-a1-bg_active_focus:                      var(--st-nav-a1-bg_active);
 	--st-nav-a1-bg_active_hover:                      var(--st-nav-a1-bg_active);
 	--st-nav-a1-bg_focus:                             var(--st-nav-a1-bg_hover);
-	--st-nav-a1-bg_hover:                             #fff;
+	--st-nav-a1-bg_hover:                             hsl(var(--primary-color-hue), 18%, 15%);
 	--st-nav-a1-border-color:                         transparent;
 	--st-nav-a1-border-color_active:                  var(--st-nav-a1-border-color_hover);
 	--st_nav-a1-border-color_focus:                   var(--st-nav-a1-border-color_hover);
@@ -38,18 +188,18 @@
 	--st-nav-a1-box-shadow_focus:                     none;
 	--st-nav-a1-box-shadow_hover:                     none;
 	--st-nav-a1-color:                                #fff;
-	--st-nav-a1-color_active:                         var(--primary-color-800);
+	--st-nav-a1-color_active:                         #fff;
 	--st-nav-a1-color_active_focus:                   var(--st-nav-a1-color_active);
 	--st-nav-a1-color_active_hover:                   var(--st-nav-a1-color_active);
 	--st-nav-a1-color_focus:                          var(--st-nav-a1-color_hover);
-	--st-nav-a1-color_hover:                          #252525;
+	--st-nav-a1-color_hover:                          #e5e5e5;
 	--st-nav-a1-font-family:                          inherit;
 	--st-nav-a1-font-size:                            .75em;
 	--st-nav-a1-font-weight:                          400;
 	--st-nav-a1-font-weight_active:                   700;
 	--st-nav-a1-font-weight_focus:                    400;
 	--st-nav-a1-font-weight_hover:                    400;
-	--st-nav-a1-height:                               2.75em;
+	--st-nav-a1-height:                               50px;
 	--st-nav-a1-outline:                              auto;
 	--st-nav-a1-outline-offset:                       0;
 	--st-nav-a1-text-decoration:                      none;
@@ -62,56 +212,56 @@
 	--st-nav-a1-text-shadow_hover:                    none;
 
 	/** Bootstrap Main Nav Dropdown **/
-	--st-nav-dropdown-bg:                             var(--st-nav-a1-bg_hover);
-	--st-nav-dropdown-border-color:                   transparent;
-	--st-nav-dropdown-border-radius:                  .25em;
-	--st-nav-dropdown-border-style:                   solid;
-	--st-nav-dropdown-border-width:                   0;
-	--st-nav-dropdown-box-shadow:                     3px 3px 4px rgba(0, 0, 0, 0.3);
-	--st-nav-dropdown-width:                          15em;
+	--st-nav-dropdown-bg:                             var(--dropmenu-child-bg);
+	--st-nav-dropdown-border-color:                   var(--dropmenu-child-border-color);
+	--st-nav-dropdown-border-radius:                  var(--dropmenu-child-border-radius);
+	--st-nav-dropdown-border-style:                   var(--dropmenu-child-border-style);
+	--st-nav-dropdown-border-width:                   var(--dropmenu-child-border-width);
+	--st-nav-dropdown-box-shadow:                     var(--dropmenu-child-box-shadow);
+	--st-nav-dropdown-width:                          var(--dropmenu-child-width);
 
 	/** Bootstrap Main Nav Dropdown Links **/
-	--st-nav-an-bg:                                   transparent;
-	--st-nav-an-bg_active:                            var(--st-nav-an-bg_hover);
-	--st-nav-an-bg_active_focus:                      var(--st-nav-an-bg_active);
-	--st-nav-an-bg_active_hover:                      var(--st-nav-an-bg_active);
-	--st-nav-an-bg_focus:                             var(--st-nav-an-bg_hover);
-	--st-nav-an-bg_hover:                             hsl(var(--primary-color-hue), 36%, 91%);
-	--st-nav-an-border-color:                         transparent;
-	--st-nav-an-border-color_active:                  var(--st-nav-an-border-color_hover);
-	--st-nav-an-border-color_focus:                   var(--st-nav-an-border-color_hover);
-	--st-nav-an-border-color_hover:                   transparent;
-	--st-nav-an-border-radius:                        .25em;
-	--st-nav-an-border-style:                         solid;
-	--st-nav-an-border-width:                         0;
-	--st-nav-an-border-width_active:                  0;
-	--st-nav-an-border-width_focus:                   0;
-	--st-nav-an-border-width_hover:                   0;
-	--st-nav-an-box-shadow:                           none;
-	--st-nav-an-box-shadow_active:                    none;
-	--st-nav-an-box-shadow_focus:                     none;
-	--st-nav-an-box-shadow_hover:                     none;
-	--st-nav-an-color:                                #2b2b2b;
-	--st-nav-an-color_active:                         var(--primary-color-900);
-	--st-nav-an-color_active_focus:                   var(--st-nav-an-color_active);
-	--st-nav-an-color_active_hover:                   var(--st-nav-an-color_active);
-	--st-nav-an-color_focus:                          var(--st-nav-an-color_hover);
-	--st-nav-an-color_hover:                          #252525;
-	--st-nav-an-font-family:                          inherit;
-	--st-nav-an-font-size:                            .75em;
-	--st-nav-an-font-weight:                          400;
-	--st-nav-an-font-weight_active:                   700;
-	--st-nav-an-font-weight_focus:                    400;
-	--st-nav-an-font-weight_hover:                    400;
-	--st-nav-an-height:                               2.5em;
-	--st-nav-an-outline:                              auto;
-	--st-nav-an-outline-offset:                       0;
-	--st-nav-an-text-decoration:                      none;
-	--st-nav-an-text-decoration_active:               none;
-	--st-nav-an-text-decoration_focus:                none;
-	--st-nav-an-text-decoration_hover:                none;
-	--st-nav-an-text-shadow:                          none;
-	--st-nav-an-text-shadow_active:                   none;
-	--st-nav-an-text-shadow_focus:                    none;
-	--st-nav-an-text-shadow_hover:                    none;
+	--st-nav-an-bg:                                   var(--dropmenu-an-bg);
+	--st-nav-an-bg_active:                            var(--dropmenu-an-bg_active);
+	--st-nav-an-bg_active_focus:                      var(--dropmenu-an-bg_active);
+	--st-nav-an-bg_active_hover:                      var(--dropmenu-an-bg_active_hover);
+	--st-nav-an-bg_focus:                             var(--dropmenu-an-bg_focus);
+	--st-nav-an-bg_hover:                             var(--dropmenu-an-bg_hover);
+	--st-nav-an-border-color:                         var(--dropmenu-an-border-color);
+	--st-nav-an-border-color_active:                  var(--dropmenu-an-border-color_active);
+	--st-nav-an-border-color_focus:                   var(--dropmenu-an-border-color_focus);
+	--st-nav-an-border-color_hover:                   var(--dropmenu-an-border-color_hover);
+	--st-nav-an-border-radius:                        var(--dropmenu-an-border-radius);
+	--st-nav-an-border-style:                         var(--dropmenu-an-border-style);
+	--st-nav-an-border-width:                         var(--dropmenu-an-border-width);
+	--st-nav-an-border-width_active:                  var(--dropmenu-an-border-width_active);
+	--st-nav-an-border-width_focus:                   var(--dropmenu-an-border-width_focus);
+	--st-nav-an-border-width_hover:                   var(--dropmenu-an-border-width_hover);
+	--st-nav-an-box-shadow:                           var(--dropmenu-an-box-shadow);
+	--st-nav-an-box-shadow_active:                    var(--dropmenu-an-box-shadow_active);
+	--st-nav-an-box-shadow_focus:                     var(--dropmenu-an-box-shadow_focus);
+	--st-nav-an-box-shadow_hover:                     var(--dropmenu-an-box-shadow_hover);
+	--st-nav-an-color:                                var(--dropmenu-an-color);
+	--st-nav-an-color_active:                         var(--dropmenu-an-color-active);
+	--st-nav-an-color_active_focus:                   var(--dropmenu-an-color_active_focus);
+	--st-nav-an-color_active_hover:                   var(--dropmenu-an-color_active_hover);
+	--st-nav-an-color_focus:                          var(--dropmenu-an-color_focus);
+	--st-nav-an-color_hover:                          var(--dropmenu-an-color_hover);
+	--st-nav-an-font-family:                          var(--dropmenu-an-font-family);
+	--st-nav-an-font-size:                            var(--dropmenu-an-font-size);
+	--st-nav-an-font-weight:                          var(--dropmenu-an-font-weight);
+	--st-nav-an-font-weight_active:                   var(--dropmenu-an-font-weight_active);
+	--st-nav-an-font-weight_focus:                    var(--dropmenu-an-font-weight_focus);
+	--st-nav-an-font-weight_hover:                    var(--dropmenu-an-font-weight_hover);
+	--st-nav-an-height:                               var(--dropmenu-an-height);
+	--st-nav-an-outline:                              var(--dropmenu-an-outline);
+	--st-nav-an-outline-offset:                       var(--dropmenu-an-outline-offset);
+	--st-nav-an-text-decoration:                      var(--dropmenu-an-text-decoration);
+	--st-nav-an-text-decoration_active:               var(--dropmenu-an-text-decoration_active);
+	--st-nav-an-text-decoration_focus:                var(--dropmenu-an-text-decoration_focus);
+	--st-nav-an-text-decoration_hover:                var(--dropmenu-an-text-decoration_hover);
+	--st-nav-an-text-shadow:                          var(--dropmenu-an-text-shadow);
+	--st-nav-an-text-shadow_active:                   var(--dropmenu-an-text-shadow_active);
+	--st-nav-an-text-shadow_focus:                    var(--dropmenu-an-text-shadow_focus);
+	--st-nav-an-text-shadow_hover:                    var(--dropmenu-an-text-shadow_hover);
 }
