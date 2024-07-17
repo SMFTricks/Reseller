@@ -62,7 +62,7 @@
 	}
 }
 
-@media screen and (min-width: 721px) {
+@media screen and (min-width: 768px) {
 	#mobile_action,
 	#mobile_moderation {
 		display: none !important;
@@ -70,7 +70,7 @@
 }
 
 /* We have shared things... */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 767px) {
 	/* Remove some content from the hooks table */
 	#list_integration_hooks th#header_list_integration_hooks_function_name, #list_integration_hooks td.function_name,
 	#list_integration_hooks th#header_list_integration_hooks_remove, #list_integration_hooks td.remove {
@@ -103,21 +103,6 @@
 	}
 	.mobile_buttons {
 		display: inline-flex;
-	}
-}
-
-@media (min-width: 720px) and (max-width: 799px) {
-	#top_info .welcome {
-		display: none;
-	}
-}
-
-/* We have shared things... */
-@media screen and (max-width: 720px) {
-	/* Remove some content from the hooks table */
-	#list_integration_hooks th#header_list_integration_hooks_function_name, #list_integration_hooks td.function_name,
-	#list_integration_hooks th#header_list_integration_hooks_remove, #list_integration_hooks td.remove {
-		display: none;
 	}
 	/* Hide me */
 	#search_form,	 #message_index_jump_to, .nextlinks, #display_jump_to,
@@ -303,7 +288,6 @@
 		margin: 0 0 5px 0;
 	}
 
-
 	/* Profile */
 	#admin_content .content {
 		padding: 0;
@@ -421,7 +405,7 @@
 }
 
 /* Mobile Menus */
-@media (min-width: 561px) {
+@media (min-width: 577px) {
 	nav:where(#main_menu, #genericmenu, #adm_submenus) .popup_container {
 		all: unset;
 		display: block !important;
@@ -439,7 +423,9 @@
 		display: none;
 	}
 }
-@media (max-width: 560px) {
+
+
+@media (max-width: 576px) {
 	a.mobile_user_menu,
 	nav:where(#genericmenu, #adm_submenus) a {
 		display: block;
@@ -478,10 +464,7 @@
 	.dropmenu li > ul {
 		position: static;
 	}
-}
 
-/* Entry level phones */
-@media (max-width: 480px) {
 	#header .content-wrapper {
 		flex-direction: column;
 		flex-wrap: wrap;
