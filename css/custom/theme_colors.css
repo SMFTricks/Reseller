@@ -116,12 +116,12 @@
 	--poster-bg:                                      var(--window-bg);
 
 	/** Window **/
-	--window-bg:                                      #f5f5f5;
+	--window-bg:                                      hsl(0, 0%, 100%);
 	--window-border-color:                            hsl(var(--primary-color-hue), 35%, 88%);
 	--window-border-radius:                           .4em;
 	--window-border-width:                            0;
 	--window-box-shadow:                              none;
-	--window-even-bg:                                 #f3f3f3;
+	--window-even-bg:                                 hsl(0, 0%, 97%);
 
 	/** Buttonlist **/
 	--buttonlist-link-bg:                             hsl(var(--primary-color-hue), 8%, 88%);
