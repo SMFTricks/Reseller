@@ -1189,6 +1189,13 @@ nav#mainNav {
 	max-width: 100% !important;
 	width: auto !important;
 }
+#content_section .navigate_section {
+	--breadcrumb-bg: var(--information-bg);
+	--breadcrumb-border-radius: .25em;
+	--navigatesection-border-radius: .25em;
+	margin-block: 1.25em;
+}
+
 #display_head {
 	margin-block-start: 0;
 	border-start-start-radius: 0;
@@ -1231,7 +1238,7 @@ a.moderation_link {
 /** Post View **/
 .post_container {
 	align-items: flex-start;
-	gap: 3em;
+	column-gap: 3em;
 
 	.windowbg,
 	.approvebg, .approvebg2 {
@@ -1243,24 +1250,44 @@ a.moderation_link {
 			background: var(--window-bg);
 			content: "";
 			height: 30px;
-			inset-block: 1em auto;
-			inset-inline: -15px auto;
+			inset-block: 1.25em auto;
+			inset-inline: -10px auto;
 			position: absolute;
-			transform: skew(45deg, 0);
+			transform: skew(50deg, 0);
 			width: 50px;
 		}
 		&::after {
 			margin-block-start: 30px;
 		}
 		&::before {
-			transform: skew(-45deg, 0);
+			transform: skew(-50deg, 0);
 		}
 		& > * {
 			position: relative;
-			z-index: 2;
+			z-index: 1;
 		}
 		&.postarea {
 			padding: .5em 1em !important;
+
+			@media screen and (max-width: 767px) {
+				border-start-start-radius: 0;
+				border-start-end-radius: 0;
+			}
+		}
+		.keyinfo, .post {
+			padding-inline: .75em;
+		}
+		.moderatorbar:has(> *) {
+			padding-block: 1em .25em;
+			z-index: 0;
+		}
+		.under_message {
+			z-index: 3;
+		}
+		@media screen and (max-width: 767px) {
+			&::after, &::before {
+				display: none;
+			}
 		}
 	}
 }
@@ -1270,7 +1297,7 @@ a.moderation_link {
 	}
 }
 :nth-child(even of div) {
-	& > .post_container .windowbg {
+	& > .post_container :is(.windowbg, .poster) {
 		background: var(--window-even-bg);
 
 		&::after,
@@ -1289,6 +1316,11 @@ a.moderation_link {
 }
 .poster {
 	border-radius: var(--window-border-radius);
+
+	@media screen and (max-width: 767px) {
+		border-end-start-radius: 0;
+		border-end-end-radius: 0;
+	}
 }
 
 /** Info Center **/
