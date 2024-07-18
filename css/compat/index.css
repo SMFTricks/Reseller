@@ -2030,6 +2030,7 @@ h1.forumtitle span#siteslogan {
 }
 .news_section .sy-pager li a {
 	background: var(--newsfader-pager-bg);
+	border-radius: var(--newsfader-pager-border-radius);
 }
 .news_section .sy-pager li.sy-active a {
 	background: var(--newsfader-pager-bg_active);

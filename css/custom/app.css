@@ -1519,3 +1519,25 @@ header#header .content-wrapper {
 #display_head {
 	padding-block: 1.75em;
 }
+
+/** News Fader **/
+.news_section .sy-box {
+	align-items: flex-start;
+	grid-template-columns: 1fr auto;
+
+	.sy-list {
+		display: flex;
+
+		li.sy-slide {
+			flex: 1;
+		}
+	}
+	.sy-pager {
+		flex-direction: column;
+		gap: .25em;
+	}
+	li.sy-active {
+		transition: all ease-in-out 500ms;
+		width: calc(var(--newsfader-pager-width) * 2);
+	}
+}

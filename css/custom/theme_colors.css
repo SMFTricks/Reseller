@@ -154,6 +154,20 @@
 	/** Dropdown Child Links **/
 	--dropmenu-an-border-radius:                      0;
 
+	/** News Fader **/
+	--newsfader-bg:                                   hsl(var(--primary-color-hue), 25%, 98%);
+	--newsfader-border-radius:                        .1em;
+	--newsfader-box-shadow:                           0 3px 3px hsl(var(--primary-color-hue) 35% 75% / 15%);
+
+	/** News Fader Icon **/
+	--newsfader-icon-bg:                              var(--secondary-color-100);
+	--newsfader-icon-color:                           var(--secondary-color-900);
+
+	/** News Fader Pager **/
+	--newsfader-pager-bg:                             var(--secondary-color-300);
+	--newsfader-pager-bg_active:                      var(--secondary-color-800);
+	--newsfader-pager-border-radius:                  0;
+
 	/** Custom Theme **/
 	--st-avatar-size:                                 65px;
 	--st-carousel-height:                             350px;
