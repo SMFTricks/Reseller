@@ -158,6 +158,7 @@
 	--newsfader-bg:                                   hsl(var(--primary-color-hue), 25%, 98%);
 	--newsfader-border-radius:                        .1em;
 	--newsfader-box-shadow:                           0 3px 3px hsl(var(--primary-color-hue) 35% 75% / 15%);
+	--newsfader-height:                               4em;
 
 	/** News Fader Icon **/
 	--newsfader-icon-bg:                              var(--secondary-color-100);

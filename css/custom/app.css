@@ -1519,21 +1519,30 @@ header#header .content-wrapper {
 .news_section .sy-box {
 	align-items: flex-start;
 	grid-template-columns: 1fr auto;
+	padding-block: 0;
 
 	.sy-list {
 		display: flex;
 
 		li.sy-slide {
+			align-items: flex-start;
+			display: flex;
 			flex: 1;
+			padding-block: .8em;
 		}
 	}
 	.sy-pager {
 		flex-direction: column;
 		gap: .25em;
-	}
-	li.sy-active {
-		transition: all ease-in-out 500ms;
-		width: calc(var(--newsfader-pager-width) * 2);
+		padding-block: .8em;
+
+		li {
+			transition: all ease-in-out 300ms;
+		}
+		li.sy-active {
+			transition: all ease-in-out 500ms;
+			width: calc(var(--newsfader-pager-width) * 2);
+		}
 	}
 }
 .news_section {
