@@ -1502,11 +1502,6 @@ a.moderation_link {
 	}
 }
 
-/** Profile popup **/
-#profile_menu {
-	/* --topmenu-width: 23em; */
-}
-
 /** Header **/
 header#header .content-wrapper {
 	@media screen and (max-width: 767px) {
@@ -1539,5 +1534,12 @@ header#header .content-wrapper {
 	li.sy-active {
 		transition: all ease-in-out 500ms;
 		width: calc(var(--newsfader-pager-width) * 2);
+	}
+}
+.news_section {
+	grid-template-columns: 1fr;
+
+	& > .icon {
+		display: none;
 	}
 }

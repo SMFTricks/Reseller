@@ -1984,9 +1984,9 @@ h1.forumtitle span#siteslogan {
 	display: grid;
 	font-size: var(--newsfader-font-size);
 	grid-template-columns: auto 1fr;
-	height: var(--newsfader-height);
 	margin-block: .5em 1em;
 	max-height: calc(var(--newsfader-height) * 1.25);
+	min-height: var(--newsfader-height);
 	overflow: hidden;
 }
 .news_section .icon {
