@@ -74,6 +74,11 @@ class Config extends Init
 	public bool $stylesCompat = true;
 
 	/**
+	 * @var bool Using custom for the theme
+	 */
+	public bool $customFonts = false;
+
+	/**
 	 * Init::loadHooks()
 	 */
 	public function loadHooks() : void
