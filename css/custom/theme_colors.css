@@ -1,7 +1,11 @@
 :root {
 	/* Toggle */
-	--toggle-bg:                                      #f7f7f7 url(../../images/icons/toggle.png) no-repeat 0 0 / var(--toggle-height);
-	--toggle-bg_hover:                                var(--primary-color-100) url(../../images/icons/toggle.png) no-repeat 0 0 / var(--toggle-height);
+	--toggle-bg:                                      var(--primary-color-50);
+	--toggle-bg_hover:                                var(--primary-color-100);
+	--toggle-border-width:                            0;
+	--toggle-box-shadow:                              none;
+	--toggle-height:                                  2px;
+	--toggle-width:                                   12px;
 
 	/** Edits **/
 
@@ -35,6 +39,7 @@
 
 	/** Body **/
 	--body-bg:                                        #EEE;
+	--body-font-family:                               'Open Sans', Helvetica, Arial, sans-serif;
 
 	/** Body Links **/
 	--body-link-color:                                hsl(var(--primary-color-hue), 29%, 30%);

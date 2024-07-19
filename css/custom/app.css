@@ -1552,3 +1552,74 @@ header#header .content-wrapper {
 		display: none;
 	}
 }
+
+/** Toggler **/
+.toggle_up, .toggle_down {
+	align-items: center;
+	background: rgba(0, 0, 0, 0.35);
+	border-color: transparent;
+	border-radius: .25em;
+	box-shadow: 0 0 5px -11px rgba(0, 0, 0, 0.65) inset;
+	display: flex;
+	padding: .5em .2em;
+	position: relative;
+
+	&::after, &::before {
+		background: var(--toggle-bg);
+		border-color: var(--toggle-border-color);
+		border-radius: var(--toggle-border-radius);
+		border-style: var(--toggle-border-style);
+		border-width: var(--toggle-border-width);
+		box-shadow: var(--toggle-box-shadow);
+		content: "";
+		display: inline-block;
+		height: var(--toggle-height);
+		margin-inline: .2em;
+		overflow: hidden;
+		transition: background-color 0.25s;
+		vertical-align: middle;
+		width: var(--toggle-width);
+	}
+	&:is(:hover, :focus, :focus-visible) {
+		background: rgba(0, 0, 0, 0.65);
+
+		&::after, &::before {
+			background: var(--toggle-bg_hover);
+			box-shadow: var(--toggle-box-shadow);
+		}
+	}
+	&:not(.toggle_down)::after {
+		display: none;
+	}
+	&:is(.toggle_down)::after {
+		height: var(--toggle-width);
+		inset: auto 0;
+		margin-inline: auto;
+		position: absolute;
+		width: var(--toggle-height);
+	}
+
+	&#postMoreExpandLink {
+		--toggle-bg: var(--primary-color-700);
+		--toggle-bg_hover: var(--primary-color-900);
+		background: var(--primary-color-50);
+		border-radius: .5em;
+		display: flex;
+		gap: .5em;
+		padding-inline: .75em;
+
+		&:is(.toggle_down)::after {
+			margin-inline-start: calc(var(--toggle-width) * .75);
+			inset: auto;
+		}
+		+ span {
+			display: none;
+		}
+	}
+}
+
+.nextlinks {
+	font-size: .9em;
+	justify-content: flex-start;
+	padding-block-start: .75em;
+}
