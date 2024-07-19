@@ -35,13 +35,9 @@ function template_main()
 	echo '
 		<div id="display_head">
 			<h2 class="display_title">
-				<span id="top_subject">', $context['subject'], '</span>', ($context['is_locked']) ? ' <span class="main_icons lock"></span>' : '', ($context['is_sticky']) ? ' <span class="main_icons sticky"></span>' : '', '
+				<span id="top_subject"><a href="', $scripturl, '?topic=', $context['current_topic'], '.0">', $context['subject'], '</a></span>', ($context['is_locked']) ? ' <span class="main_icons lock"></span>' : '', ($context['is_sticky']) ? ' <span class="main_icons sticky"></span>' : '', '
 			</h2>
 			<p>', $txt['started_by'], ' ', $context['topic_poster_name'], ', ', $context['topic_started_time'], '</p>';
-
-	// Next - Prev
-	echo '
-			<span class="nextlinks">', $context['previous_next'], '</span>';
 
 	if (!empty($settings['display_who_viewing']))
 	{
@@ -59,6 +55,10 @@ function template_main()
 		echo $txt['who_and'], $context['view_num_guests'], ' ', $context['view_num_guests'] == 1 ? $txt['guest'] : $txt['guests'], $txt['who_viewing_topic'], '
 			</p>';
 	}
+
+	// Next - Prev
+	echo '
+			<span class="nextlinks">', $context['previous_next'], '</span>';
 
 	// Show the anchor for the top and for the first message. If the first message is new, say so.
 	echo '

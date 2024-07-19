@@ -18,7 +18,7 @@ function template_main()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	echo '<div id="display_head">
-			<h2 class="display_title">', $context['name'], '</h2>';
+			<h2 class="display_title"><a href="', $scripturl, '?board=', $context['current_board'], '.0">', $context['name'], '</a></h2>';
 
 	if (isset($context['description']) && $context['description'] != '')
 		echo '
