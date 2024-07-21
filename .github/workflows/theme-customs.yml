@@ -31,7 +31,7 @@ jobs:
         with:
           repository: SMFTricks/Theme-Customs
           ref: ${{ github.event.inputs.main_repo_branch }}
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.THEME_CUSTOMS }}
           path: temp_clone
 
       - name: Copy main-repo contents to new directory
