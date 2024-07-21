@@ -1213,10 +1213,42 @@ nav#mainNav {
 	background: var(--navigatesection-bg);
 	border-radius: .2em;
 	padding: .5em;
+
+	.category_description {
+		background: var(--roundframe-bg);
+		font-size: .75em;
+		padding: .25em .75em;
+	}
 }
 .board_container {
 	font-size: .9em;
 
+	.board_icon {
+		text-align: center;
+		padding: 8px 0 0 0;
+		width: 60px;
+		flex-shrink: 0;
+
+		a {
+			background: url(../../images/boardicons.png) no-repeat 0 0 / 90px;
+			display: inline-block;
+			width: 45px;
+			height: 45px;
+
+			&.board_on {
+				background-position: 0 0;
+			}
+			&.board_on2 {
+				background-position: -45px 0;
+			}
+			&.board_off {
+				background-position: -45px -45px;
+			}
+			&::before {
+				display: none;
+			}
+		}
+	}
 	&.sboard_off {
 		.board_info .subject {
 			font-weight: 400;
