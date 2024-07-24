@@ -4,6 +4,7 @@ Free & Premium Themes for SMF
 
 [b][size=5]Reseller[/size][/b]
 [size=2]Developed by [url="https://smftricks.com/index.php?action=profile;u=2"]Daniiel[/url] and [url="https://smftricks.com/index.php?action=profile;u=1"]Diego Andrés[/url][/size]
+[size=2]Designed by: [url="https://smftricks.com/index.php?action=profile;u=1342"]Brian Casillas[/url][/size]
 
 [img]https://img.shields.io/github/v/release/SMFTricks/Reseller.svg?style=flat&logo=github&color=green[/img] [img]https://img.shields.io/badge/License-MIT-248049[/img] [img]https://img.shields.io/badge/SMF-2.1-3f73a0[/img] [img]https://img.shields.io/badge/RLT%20Support-Yes-bf9d73[/img]
 

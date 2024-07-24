@@ -5,6 +5,7 @@
 
 ![Latest Release](https://img.shields.io/github/v/release/SMFTricks/Reseller.svg?style=flat&logo=github&color=green) ![License](https://img.shields.io/badge/License-MIT-248049) ![SMF 2.1](https://img.shields.io/badge/SMF-2.1-3f73a0) ![RTL](https://img.shields.io/badge/RLT%20Support-Yes-bf9d73)
 * Developed by [Daniel Marquez](https://github.com/dmarquez9) and [Diego Andrés](https://github.com/DiegoAndresCortes)
+* Designed by [Brian Casillas](https://smftricks.com/index.php?action=profile;u=1342)
 
 ### 🖼️ Preview
 ![Theme Preview](https://github.com/SMFTricks/Reseller/blob/master/_assets/preview.png)
