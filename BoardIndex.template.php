@@ -261,7 +261,10 @@ function template_ic_block_recent()
 			echo '
 					<tr class="windowbg">
 						<td class="recentpost">', $post['link'], '</td>
-						<td class="recentposter">', $post['poster']['link'], '</td>
+						<td class="recentposter">
+							', (!empty($post['poster']['avatar']) && !empty($post['poster']['avatar']) ? themecustoms_avatar($post['poster']['avatar']['href'], $post['poster']['id']) : ''), '
+							<span>', $post['poster']['link'], '</span>
+						</td>
 						<td class="recentboard">', $post['board']['link'], '</td>
 						<td class="recenttime">', $post['time'], '</td>
 					</tr>';

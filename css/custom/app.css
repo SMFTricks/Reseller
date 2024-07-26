@@ -1655,3 +1655,46 @@ header#header .content-wrapper {
 	justify-content: flex-start;
 	padding-block-start: .75em;
 }
+
+/** Recent Posts **/
+#ic_recentposts {
+	--avatar-size: 25px;
+
+	tr {
+		--window-border-radius: 0;
+		--window-border-width: 0 0 1px;
+		--window-margin-block: 0;
+		--window-padding-block: 0;
+		display: grid;
+		grid-template-columns: 35% 20% 20% 25%;
+
+		&.windowbg:first-of-type {
+			--window-border-width: 1px 0 1px;
+		}
+		& > :is(th, td) {
+			align-items: center;
+			display: flex;
+			gap: .5em;
+			width: auto !important;
+		}
+	}
+
+	@media screen and (max-width: 991px) {
+		tr {
+			grid-template-columns: 40% 25% 35%;
+
+			& > .recentboard {
+				display: none;
+			}
+		}
+	}
+	@media screen and (max-width: 767px) {
+		tr {
+			grid-template-columns: 50% 50%;
+
+			& > .recenttime {
+				display: none;
+			}
+		}
+	}
+}
