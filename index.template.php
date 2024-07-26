@@ -240,15 +240,6 @@ function template_body_above()
 	echo '
 	<div class="content-wrapper">';
 
-
-	// Show a random news item? (or you could pick one from news_lines...)
-	if (!empty($settings['enable_news']) && !empty($context['random_news_line']))
-		echo '
-		<div class="random_news">
-			<h2>', $txt['news'], ': </h2>
-			<p>', $context['random_news_line'], '</p>
-		</div>';
-
 		!function_exists('themecustoms_carousel') ? '' : themecustoms_carousel();
 
 	// The main content should go here.
