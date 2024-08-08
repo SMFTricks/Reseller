@@ -346,33 +346,7 @@ function template_summary()
 				<dd>', $context['member']['age'] . ($context['member']['today_is_birthday'] ? ' &nbsp; <img src="' . $settings['images_url'] . '/cake.png" alt="">' : ''), '</dd>';
 
 	echo '
-			</dl>';
-
-	// Any custom fields for standard placement?
-	if (!empty($context['print_custom_fields']['standard']))
-	{
-		$fields = array();
-
-		foreach ($context['print_custom_fields']['standard'] as $field)
-			if (!empty($field['output_html']))
-				$fields[] = $field;
-
-		if (count($fields) > 0)
-		{
-			echo '
-			<dl class="settings">';
-
-			foreach ($fields as $field)
-				echo '
-				<dt>', $field['name'], ':</dt>
-				<dd>', $field['output_html'], '</dd>';
-
-			echo '
-			</dl>';
-		}
-	}
-
-	echo '
+			</dl>
 			<dl class="settings noborder">';
 
 	// Can they view/issue a warning?
@@ -456,6 +430,30 @@ function template_summary()
 
 	echo '
 			</dl>';
+
+	// Any custom fields for standard placement?
+	if (!empty($context['print_custom_fields']['standard']))
+	{
+		$fields = array();
+
+		foreach ($context['print_custom_fields']['standard'] as $field)
+			if (!empty($field['output_html']))
+				$fields[] = $field;
+
+		if (count($fields) > 0)
+		{
+			echo '
+			<dl class="settings">';
+
+			foreach ($fields as $field)
+				echo '
+				<dt>', $field['name'], ':</dt>
+				<dd>', $field['output_html'], '</dd>';
+
+			echo '
+			</dl>';
+		}
+	}
 
 	// Are there any custom profile fields for above the signature?
 	if (!empty($context['print_custom_fields']['above_signature']))

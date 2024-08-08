@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.0.3 - 8 August 2024
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Changed standard custom fields location in profile.
+
 #### 2.0.2 - 26 July 2024
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed missing avatar in recent posts.
 
