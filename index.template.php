@@ -28,7 +28,7 @@ function template_html_above()
 
 	// Show right to left, the language code, and the character set for ease of translating.
 	echo '<!DOCTYPE html>
-<html', $context['right_to_left'] ? ' dir="rtl"' : '', !empty($txt['lang_locale']) ? ' lang="' . str_replace("_", "-", substr($txt['lang_locale'], 0, strcspn($txt['lang_locale'], "."))) . '"' : '', $settings['themecustoms_html_attributes_data'] ?? '', '>
+<html', $context['right_to_left'] ? ' dir="rtl"' : '', !empty($txt['lang_locale']) ? ' lang="' . str_replace("_", "-", substr($txt['lang_locale'], 0, strcspn($txt['lang_locale'], "."))) . '"' : '', $settings['themecustoms_html_attributes'] ?? '', '>
 <head>
 	<meta charset="', $context['character_set'], '">';
 
