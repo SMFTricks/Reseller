@@ -9,7 +9,7 @@ let localVariant = localStorage.getItem('st_theme_variant');
 let toggleVariant = document.querySelectorAll('.theme-variant-toggle');
 
 if (!smf_member_id && localVariant !== null) {
-	document.documentElement.dataset.mode = localVariant;
+	document.documentElement.dataset.variant = localVariant;
 }
 
 function switchVariant(variant) {

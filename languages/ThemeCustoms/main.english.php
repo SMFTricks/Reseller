@@ -235,10 +235,9 @@ $txt['st_site_color'] = 'Site color';
 $txt['st_site_color_desc'] = 'Indicates a suggested color that user agents (browser) should use to customize the display of the page or of the surrounding user interface. <em class="smalltext">Default is #567c8f</em>';
 
 // Color Variants
+$txt['st_default_variant_desc'] = 'If the user selection is disabled, this will be the default and locked mode. Admins can still change their preference.<br><strong>This does not affect the default values for the users, for that you can use the Member Options section.</strong>';
 $txt['st_color'] = 'Color Settings';
 $txt['st_color_variants'] = 'Theme Color Variants';
-$txt['st_color_variants_javascript'] = 'Use JavaScript to change the color';
-$txt['st_color_variants_javascript_desc'] = 'This will change the variant of the theme using JavaScript and auto-update for the profile.';
 $txt['variant_pick'] = 'Select Color Variant';
 $txt['variant_default'] = 'Default';
 $txt['variant_red'] = 'Red';
@@ -257,7 +256,7 @@ $txt['variant_white'] = 'White';
 $txt['st_theme_mode'] = 'Theme Mode';
 $txt['st_theme_mode_select'] = 'Select Theme Mode';
 $txt['st_theme_mode_default'] = 'Default Theme Mode';
-$txt['st_theme_mode_default_desc'] = 'If user selection is disabled, this will be the default and locked mode. Admins can still change their preference.';
+$txt['st_theme_mode_default_desc'] = 'If user selection is disabled, this will be the default and locked mode. Admins can still change their preference.<br><strong>This does not affect the default values for the users, for that you can use the Member Options section.</strong>';
 $txt['st_enable_mode_selection'] = 'Enable user mode selection';
 $txt['st_dark_mode'] = 'Dark Mode';
 $txt['st_light_mode'] = 'Light Mode';

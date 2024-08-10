@@ -254,14 +254,14 @@ class Integration
 	}
 
 	/**
-	 * Add the global data attributes
+	 * Add the global html attributes
 	 */
 	public function htmlAttributes() : void
 	{
 		global $settings, $context;
 
-		// Data attributes
-		$settings['themecustoms_html_attributes_data'] = (!empty($settings['themecustoms_html_attributes']['data']) && is_array($settings['themecustoms_html_attributes']['data']) ? ' ' . implode(' ', $settings['themecustoms_html_attributes']['data']) : '');
+		// HTML Attributes
+		$settings['themecustoms_html_attributes'] = (!empty($settings['themecustoms_html']['attributes']) && is_array($settings['themecustoms_html']['attributes']) ? ' ' . implode(' ', $settings['themecustoms_html']['attributes']) : '');
 
 		// Disable the info center?
 		if (isset($settings['st_disable_info_center']) && !empty($settings['st_disable_info_center']) && !empty($context['info_center']))

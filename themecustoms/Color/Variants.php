@@ -53,7 +53,7 @@ class Variants
 		$this->selection();
 
 		// No need to load if the setting is disabled and the default variant is selected
-		if (!empty($context['theme_can_change_variants']) || $settings['default_variant'] !== 'default') {
+		if (!empty($context['theme_can_change_variants']) || (!empty($settings['default_variant']) && $settings['default_variant'] !== 'default')) {
 			// Load the css
 			$this->css();
 
@@ -127,7 +127,7 @@ class Variants
 		global $context, $settings;
 
 		// Add the HTML data attribute for color variant
-		$settings['themecustoms_html_attributes']['data']['variant'] = 'data-variant="' . $context['theme_variant'] . '"';
+		$settings['themecustoms_html']['attributes'][] = 'data-variant="' . $context['theme_variant'] . '"';
 
 		// Add the CSS file for the variants
 		loadCSSFile('custom/variants.css', ['order_pos' => $this->order], 'smf_variants');
@@ -159,9 +159,9 @@ class Variants
 		global $context, $settings;
 
 		// Check if the file exists
-		$variantStyle = file_exists($settings['theme_dir'] . '/css/custom/index_' . $context['theme_variant'] . '.css') ? '<link rel="stylesheet" href="' . $settings['theme_url']. '/css/custom/index_' . $context['theme_variant'] . '.css" />' : '';
+		$variantStyle = file_exists($settings['theme_dir'] . '/css/custom/index_' . $context['theme_variant'] . '.css') ? '<link rel="stylesheet" href="' . $settings['theme_url'] . '/css/custom/index_' . $context['theme_variant'] . '.css" />' : '';
 
-		$sce_options['style'] = $sce_options['style'] . '"/>' . $variantStyle . '<link rel="stylesheet" href="' . $settings['theme_url']. '/css/custom/variants.css';
+		$sce_options['style'] = $sce_options['style'] . '"/>' . $variantStyle . '<link rel="stylesheet" href="' . $settings['theme_url'] . '/css/custom/variants.css';
 
 		// Add the data attribute
 		addInlineJavaScript('
@@ -223,6 +223,9 @@ class Variants
 	{
 		global $context, $txt, $settings;
 
+		if (!empty($context['current_action']) && $context['current_action'] == 'admin' && isset($_REQUEST['th']) && !empty($_REQUEST['th']) && $_REQUEST['th'] != Config::$current->id)
+			return;
+
 		// Insert the theme options
 		$context['theme_options'] = array_merge(
 			[
@@ -255,12 +258,11 @@ class Variants
 		$this->settings = [
 			[
 				'section_title' => $txt['theme_variants'],
-				'id' => 'variant',
+				'id' => 'default_variant',
 				'label' => $txt['theme_variants_default'],
-				'description' => '<img src="' . $settings['images_url'] . '/thumbnail' . (!empty($settings['default_variant']) && $settings['default_variant'] !== 'default' ? '_' . $settings['default_variant'] : '') . '.png" id="variant_preview" class="theme_thumbnail" alt="">',
+				'description' => $txt['st_default_variant_desc'] . '<br><br><img src="' . $settings['images_url'] . '/thumbnail' . (!empty($settings['default_variant']) && $settings['default_variant'] !== 'default' ? '_' . $settings['default_variant'] : '') . '.png" id="variant_preview" class="theme_thumbnail" alt="">',
 				'options' => $this->selectVariants,
 				'type' => 'list',
-				'default' => $settings['theme_colorvariants'][0],
 				'theme_type' => 'color',
 			],
 			[

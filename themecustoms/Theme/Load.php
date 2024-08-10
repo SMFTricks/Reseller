@@ -223,7 +223,7 @@ class Load
 						[
 							'attributes' => $options['css']['attributes'] ?? [],
 							'external' => $options['css']['external'] ?? false,
-							'minimize' => $options['css']['minimize'] ?? false,
+							'minimize' => $options['css']['minimize'] ?? true,
 							'order_pos' => $options['css']['order_pos'] ?? abs($this->order--),
 						],
 						'customtheme_' . $file
@@ -241,7 +241,7 @@ class Load
 					(empty($options['default']) ? 'custom/' : '') . (!is_array($options) ? $options : $file) . '.css',
 					[
 						'attributes' => $options['attributes'] ?? [],
-						'minimize' => $options['minimize'] ?? false,
+						'minimize' => $options['minimize'] ?? true,
 						'order_pos' => $options['order_pos'] ?? abs($this->order--),
 					],
 					'customtheme_' . (!is_array($options) ? $options : $file)
@@ -292,7 +292,7 @@ class Load
 							'attributes' => $options['js']['attributes'] ?? [],
 							'defer' => $options['js']['defer'] ?? false,
 							'external' => $options['js']['external'] ?? false,
-							'minimize' => $options['js']['minimize'] ?? false,
+							'minimize' => $options['js']['minimize'] ?? true,
 						],
 						'customtheme_' . $file
 					);
