@@ -1,6 +1,10 @@
 # Changelog
 
-#### 2.0.3 - 8 August 2024
+#### 2.0.4 - 10 August 2024
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issue with minification of CSS and JS files.
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) HTML attributes definition.
+
+#### 2.0.3 - 08 August 2024
 - ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Changed standard custom fields location in profile.
 
 #### 2.0.2 - 26 July 2024

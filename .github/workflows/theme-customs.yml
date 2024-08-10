@@ -65,8 +65,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git commit -m "Update Theme-Customs" -m "Signed-off-by: Diego Andrés <diegoandres_cortes@outlook.com>" || true
-
+          git commit -m "chore: Sync Theme-Customs" -m "Signed-off-by: Diego Andrés <diegoandres_cortes@outlook.com>" || true
       - name: Push changes to origin
         run: |
           git push origin HEAD
