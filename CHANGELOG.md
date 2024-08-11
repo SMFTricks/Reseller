@@ -16,7 +16,30 @@
 - ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Fixed board icons to match old theme.
 
 #### 2.0 - 19 July 2024
-- ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Initial Release.
+- ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Initial Release for SMF 2.1.x.
+---
+#### 1.3.1 - 05 January 2022
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) SMF 2.0.19 patch updates.
+
+####  1.3 - 27 January 2020
+- ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Tweaked styles and included additional responsive changes.
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) SMF 2.0.17 patch updates.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed style issues with the menu.
+---
+#### 1.2 - 04 July 2017
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Code improvements and miscelaneous fixes.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed various reported issues.
+---
+#### 1.1.1 - 08 August 2014
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Included PSD files.
+
+#### 1.1 - 02 August 2014
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed broken/corrupted images.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed undefined errors caused by the menu.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed hardcoded langauge strings.
+---
+#### 1.0 - 30 July 2014
+- ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Initial Release for SMF 2.0.x.
 
 ## Legend
 - ![Translation](https://smftricks.com/assets/changelog/language.png) Translation
