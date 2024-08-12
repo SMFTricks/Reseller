@@ -1,4 +1,5 @@
 ﻿node_modules
+package.json
 package-lock.json
 css/custom/custom_edits.css
 .DS_Store
