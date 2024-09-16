@@ -172,6 +172,8 @@
 	--fieldset-legend-border-width:                   0;
 	--fieldset-legend-box-shadow:                     none;
 	--fieldset-legend-color:                          hsl(0, 0%, 33%);
+	--fieldset-legend-font-size:                      inherit;
+	--fieldset-legend-font-weight:                    700;
 
 	/** Details **/
 	--details-bg:                                     transparent;

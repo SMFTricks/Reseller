@@ -268,7 +268,8 @@ fieldset legend {
 	border-style: var(--fieldset-legend-border-style);
 	border-width: var(--fieldset-legend-border-width);
 	box-shadow: var(--fieldset-legend-box-shadow);
-	font-weight: bold;
+	font-size: var(--fieldset-legend-font-size);
+	font-weight: var(--fieldset-legend-font-weight);
 	color: var(--fieldset-legend-color);
 }
 /* Details tag */
