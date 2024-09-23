@@ -275,7 +275,7 @@ class Variants
 
 		// Change the thumbnail on selection
 		addInlineJavaScript('
-			document.querySelector(\'#options_variant\').addEventListener(\'change\', function() {
+			document.querySelector(\'#options_variant\')?.addEventListener(\'change\', function() {
 				let thumbnail = document.querySelector(\'#variant_preview\');
 				let variant = \'_\' + this.value;
 				thumbnail.src = smf_images_url + \'/thumbnail\' + (this.value === \'default\' ? \'\' : variant) + \'.png\';
