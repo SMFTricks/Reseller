@@ -7,7 +7,7 @@ html {
 	display: flex;
 	height: auto;
 }
-body {
+body[contenteditable] {
 	flex: 1;
 	background: var(--input-bg);
 	color: var(--input-color);
