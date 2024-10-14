@@ -132,7 +132,7 @@ class DarkMode
 		addJavaScriptVar('smf_theme_colormode', $context['theme_colormode'], true);
 
 		// Load the javascript file
-		loadJavascriptFile('custom/dark.js', ['async' => true, 'defer' => true, 'minimize' => true,],'smf_darkmode');
+		loadJavascriptFile('custom/dark.js', ['async' => false, 'defer' => true, 'minimize' => true,],'smf_darkmode');
 	}
 
 	/**

@@ -147,7 +147,7 @@ class Variants
 		addJavaScriptVar('smf_theme_variant', $context['theme_variant'], true);
 
 		// Load the javascript file
-		loadJavascriptFile('custom/variants.js', ['async' => true, 'defer' => true, 'minimize' => true,], 'smf_variants');
+		loadJavascriptFile('custom/variants.js', ['async' => false, 'defer' => true, 'minimize' => true,], 'smf_variants');
 	}
 
 	/**
