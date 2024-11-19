@@ -1586,7 +1586,7 @@ header#header .content-wrapper {
 }
 
 /** Toggler **/
-.toggle_up, .toggle_down {
+.catbg .toggle_up, .catbg .toggle_down {
 	align-items: center;
 	background: rgba(0, 0, 0, 0.35);
 	border-color: transparent;
