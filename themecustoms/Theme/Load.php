@@ -52,7 +52,7 @@ class Load
 	{
 		$this->cssFiles = [
 			'app' => [
-				'order_pos' => Config::$current->bootstrap ? 9001 : 3000,
+				'order_pos' => Config::$current->stylesCompat ? 9001 : 3000,
 			],
 			'custom_edits' => [
 				'order_pos' => 9003,
