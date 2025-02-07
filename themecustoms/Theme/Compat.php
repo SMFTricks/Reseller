@@ -47,7 +47,7 @@ class Compat
 		loadCSSFile('compat/variables.css', ['minimize' => true, 'order_pos' => -2], 'smf_variables');
 
 		// Dark Mode?
-		if (!empty(Config::$current->darkMode) && (!empty($context['theme_can_change_mode']) || $settings['st_theme_mode_default'] !== 'light')) {
+		if (!empty(Config::$current->darkMode) && (!empty($context['theme_can_change_mode']) || (!empty($settings['st_theme_mode_default']) && $settings['st_theme_mode_default'] !== 'light'))) {
 			loadCSSFile('compat/dark.css', ['order_pos' => 2, 'attributes' => (isset($context['theme_colormode']) && $context['theme_colormode'] == 'system' ? ['media' => '(prefers-color-scheme: dark)'] : [])], 'smf_dark');
 		}
 
