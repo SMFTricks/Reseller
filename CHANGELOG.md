@@ -1,5 +1,13 @@
 # Changelog
 
+#### 2.0.5 - 07 February 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed minor issues and undefined errors.
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Updated assets and libraries.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Added missing CSS variables.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed undefined JS selectors.
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Minor fixes for WYSIWYG mode.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed order of loaded CSS files.
+
 #### 2.0.4 - 10 August 2024
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issue with minification of CSS and JS files.
 - ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) HTML attributes definition.
