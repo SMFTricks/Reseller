@@ -186,6 +186,9 @@
 	--st-nav-border-width:                            0;
 	--st-nav-box-shadow:                              0 -3px #222427 inset;
 
+	/** Mobile Generic **/
+	--mobilegeneric-color:                            #000;
+
 	/** Bootstrap Main Nav Links **/
 	--st-nav-a1-bg:                                   transparent;
 	--st-nav-a1-bg_active:                            hsl(var(--primary-color-hue), 14%, 19%);
