@@ -1224,25 +1224,27 @@ nav#mainNav {
 	font-size: .9em;
 
 	.board_icon {
-		text-align: center;
-		padding: 8px 0 0 0;
-		width: 60px;
+		align-items: center;
+		display: flex;
 		flex-shrink: 0;
+		text-align: center;
+		padding: .25em 0;
+		width: 70px;
 
 		a {
-			background: url(../../images/boardicons.png) no-repeat 0 0 / 90px;
+			background: url(../../images/boardicons.png) no-repeat -105px -104px;
 			display: inline-block;
-			width: 45px;
-			height: 45px;
+			width: 70px;
+			height: 60px;
 
 			&.board_on {
-				background-position: 0 0;
+				background-position: -10px -15px;
 			}
 			&.board_on2 {
-				background-position: -45px 0;
+				background-position: -105px -15px;
 			}
 			&.board_off {
-				background-position: -45px -45px;
+				background-position: -10px -104px;
 			}
 			&::before {
 				display: none;

@@ -1,0 +1,20 @@
+.board_container {
+	@media screen and (max-width: 991px) {
+		grid-template-columns: 60px 1fr;
+	}
+	@media screen and (max-width: 767px) {
+		grid-template-columns: 32px 1fr;
+
+		& .board_icon a {
+			inset-inline: -20px;
+			position: relative;
+			scale: .5;
+		}
+	}
+}
+
+#content_section {
+	@media screen and (max-width: 767px) {
+		padding-inline: .25em;
+	}
+}
