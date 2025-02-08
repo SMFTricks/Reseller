@@ -1,5 +1,9 @@
 # Changelog
 
+#### 2.0.6 - 07 February 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issue with board icons in mobile.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed generic menus colors.
+
 #### 2.0.5 - 07 February 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed minor issues and undefined errors.
 - ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Updated assets and libraries.
