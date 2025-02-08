@@ -1232,11 +1232,15 @@ nav#mainNav {
 		width: 70px;
 
 		a {
-			background: url(../../images/boardicons.png) no-repeat -105px -104px;
+			background-image: url(../../images/boardicons.png);
+			background-repeat: no-repeat;
 			display: inline-block;
 			width: 70px;
 			height: 60px;
 
+			&.board_redirect {
+				background-position: -105px -105px;
+			}
 			&.board_on {
 				background-position: -10px -15px;
 			}
