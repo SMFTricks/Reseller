@@ -10,7 +10,7 @@
 // Carousel
 $txt['st_carousel'] = 'Carrousel';
 $txt['st_enable_carousel'] = 'Schakel carrousel in';
-$txt['st_enable_carousel_desc'] = 'Inschakelen om meer instellingen weer te geven. Als je de Carousel add-on gebruikt, heb je de opties om hieronder te uploaden, zodra deze instelling is ingeschakeld.';
+$txt['st_enable_carousel_desc'] = 'Dit is een globale instelling om de carrousel volledig uit te schakelen of in te schakelen.';
 $txt['st_carousel_index'] = 'Alleen op de startpagina weergeven';
 $txt['st_carousel_enable_images'] = 'Carrousel afbeeldingen inschakelen';
 $txt['st_carousel_speed'] = 'Carrousel autoplay snelheid';
@@ -20,7 +20,7 @@ $txt['st_carousel_link_text_desc'] = 'Tekst om weer te geven in de link. <span c
 $txt['st_carousel_go_to_link'] = 'Ga naar link';
 $txt['st_carousel_add_new'] = 'Toevoegen';
 $txt['st_carousel_slides'] = 'Aantal slides';
-$txt['st_carousel_slides_desc'] = 'Stel het aantal afbeeldingen voor de carrousel in. Beperkt tot een bereik tussen 1-6';
+$txt['st_carousel_slides_desc'] = 'Stel het aantal afbeeldingen voor de carrousel in. Beperkt tot een bereik tussen 1-5';
 $txt['st_carousel_bbc_allowed'] = 'BBC-tags, zoals [b], [i] en [u], zijn toegestaan in je slides, evenals smileys.';
 
 // Sliders

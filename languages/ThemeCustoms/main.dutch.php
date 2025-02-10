@@ -18,7 +18,7 @@ $txt['st_footer'] = 'Voettekst';
 $txt['st_boards'] = 'Boards';
 
 // Regular description
-$txt['st_about'] = 'Over ';
+$txt['st_about'] = 'Over';
 $txt['st_description_default'] = 'Welkom bij het forum!';
 $txt['st_description'] = 'Forum beschrijving';
 /* Argument: $txt['st_description_default'] */
@@ -93,16 +93,23 @@ $txt['st_enable_avatars_boards'] = 'Toon avatars op boards';
 $txt['st_enable_avatars_topics'] = 'Toon avatars op topic lijst';
 $txt['st_enable_avatars_recent'] = 'Toon avatars op recente berichten (informatiecentrum)';
 $txt['st_enable_avatars_online'] = 'Toon avatars op de wie is online lijst';
+$txt['st_enable_avatars_mlist'] = 'Toon avatars op de ledenlijst';
+
+// New Topic Button
+$txt['st_new_topic_button'] = 'Activeer nieuwe topic knop';
+$txt['st_new_topic_button_desc'] = 'Dit zal een nieuwe topic knop toevoegen in het gebruikersgedeelte';
 
 // General strings
 $txt['st_stats'] = 'Statistieken';
 $txt['st_golink'] = 'Ga link';
 $txt['st_menu'] = 'Menu';
+$txt['st_menu_toggle'] = 'Menu verbergen / tonen';
 $txt['st_remember'] = 'Onthoud me';
 $txt['close'] = 'Sluiten';
 $txt['st_gotop'] = 'Naar boven';
 $txt['st_config'] = 'Configuratie';
 $txt['st_information'] = 'Informatie';
+$txt['st_theme_information'] = 'Thema informatie';
 $txt['st_tasks'] = 'Taken';
 $txt['pm'] = 'Persoonlijke berichten';
 $txt['see_all'] = 'Toon alles';
@@ -115,6 +122,16 @@ $txt['st_profile_cover'] = 'Profiel afbeelding';
 $txt['st_news_prom'] = 'Nieuws and aanbiedingen';
 $txt['st_previous'] = 'Vorige';
 $txt['st_next'] = 'Volgende';
+$txt['st_breadcrumb'] = 'Kruimelpad';
+$txt['st_options'] = 'Instellingen';
+$txt['st_more'] = 'Meer';
+$txt['st_actions'] = 'Acties';
+
+// Calendar strings
+$txt['start_date'] = 'Startdatum';
+$txt['end_date'] = 'Einddatum';
+$txt['start_time'] = 'Starttijd';
+$txt['end_time'] = 'Eindtijd';
 
 // Colorpicker
 $txt['st_colorpicker1_admin'] = 'Kies primaire thema kleur';
@@ -218,10 +235,9 @@ $txt['st_site_color'] = 'Webite kleur';
 $txt['st_site_color_desc'] = 'Geeft een voorstel kleur die user agents (browsers) kunnen gebruiken om de weergave van de gebruikersinterface op aan te passen. <em class="smalltext">Standaard waarde is #567c8f</em>';
 
 // Color Variants
+$txt['st_default_variant_desc'] = 'Als de gebruikersselectie is uitgeschakeld, wordt dit de standaard en vergrendelde modus. Beheerders kunnen nog steeds hun voorkeuren wijzigen.<br><strong>Dit heeft geen invloed op de standaardwaarden voor de gebruikers, want daarvoor kun je de sectie ledenopties gebruiken.</strong>';
 $txt['st_color'] = 'Kleur instellingen';
 $txt['st_color_variants'] = 'Thema kleur varianten';
-$txt['st_color_variants_javascript'] = 'Gebruik JavaScript om de kleur te wijzigen';
-$txt['st_color_variants_javascript_desc'] = 'Hiermee wordt de thema variant gewijzigd middels JavaScript en door auto-update in het profiel.';
 $txt['variant_pick'] = 'Selecteer kleur variant';
 $txt['variant_default'] = 'Standaard';
 $txt['variant_red'] = 'Rood';
@@ -240,11 +256,11 @@ $txt['variant_white'] = 'Wit';
 $txt['st_theme_mode'] = 'Thema modus';
 $txt['st_theme_mode_select'] = 'Selecteer thema modus';
 $txt['st_theme_mode_default'] = 'Standaard thema modus';
-$txt['st_theme_mode_default_desc'] = 'Als gebruiker modus niet actief is, dan is dit de vaste standaard modus.';
-$txt['st_enable_dark_mode'] = 'Activeer gebruiker modus selectie';
+$txt['st_theme_mode_default_desc'] = 'Als gebruikersselectie is uitgeschakeld, wordt dit de standaard en vergrendelde modus. Beheerders kunnen nog steeds hun voorkeuren wijzigen.<br><strong>Dit heeft geen invloed op de standaardwaarden voor de gebruikers, want daarvoor kun je de sectie ledenopties gebruiken.</strong>';
+$txt['st_enable_mode_selection'] = 'Schakel gebruikersmodus selectie in';
 $txt['st_dark_mode'] = 'Donkere modus';
 $txt['st_light_mode'] = 'Lichte modus';
-$txt['st_auto_mode'] = 'Auto modus';
+$txt['st_system_mode'] = 'Systeemmodus';
 
 // Theme information
 $txt['st_themeinfo_details'] = 'Thema details';
