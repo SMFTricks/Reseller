@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.0.8 - 13 February 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed lists not displaying correctly in WYSIWYG mode.
+
 #### 2.0.7 - 08 February 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issue with board icons disappearing.
 
