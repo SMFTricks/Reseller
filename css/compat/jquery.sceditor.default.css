@@ -15,8 +15,8 @@ body[contenteditable] {
 }
 
 ul, ol {
-	margin: revert;
-	padding: revert;
+	margin: revert !important;
+	padding: revert !important;
 }
 
 table, td {
