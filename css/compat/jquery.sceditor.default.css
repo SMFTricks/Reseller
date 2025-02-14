@@ -15,7 +15,7 @@ body[contenteditable] {
 }
 
 ul, ol {
-	margin: revert !important;
+	list-style: revert;
 	padding: revert !important;
 }
 
