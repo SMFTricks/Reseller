@@ -684,9 +684,14 @@ h3.profile_hd::before,
 	content: "\f0ac";
 }
 /* Gallery */
-.main_icons.media::before
+.main_icons.media::before,
 .main_icons.gallery::before {
 	content: "\f87c";
+}
+/* Downloads */
+.main_icons.downloads::before,
+.main_icons.download::before {
+	content: "\f0ed";
 }
 /* Arcade */
 .main_icons.arcade::before {
