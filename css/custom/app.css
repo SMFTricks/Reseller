@@ -472,6 +472,9 @@ nav > button.collapsed {
 		padding: 0;
 	}
 }
+#mainNav {
+	--mobilegeneric-color: white;
+}
 #genericmenu, #adm_submenus {
 	padding-inline: 1em;
 	row-gap: 1em;
