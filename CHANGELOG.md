@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.0.9 - 18 February 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issues with button list in responsive view.
+
 #### 2.0.8 - 13 February 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed lists not displaying correctly in WYSIWYG mode.
 
