@@ -95,12 +95,6 @@
 		top: 0.25em;
 		position: relative;
 	}
-	.pagesection .buttonlist, #moderationbuttons {
-		display: none;
-	}
-	.buttonlist > li, .buttonlist > li > a {
-		width: 100%;
-	}
 	.mobile_buttons {
 		display: inline-flex;
 	}
