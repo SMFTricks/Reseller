@@ -21,7 +21,7 @@ class Config extends Init
 	/**
 	 * @var string Theme Version
 	 */
-	protected string $version = '2.0.9';
+	protected string $version = '2.0.10';
 
 	/**
 	 * @var string Theme Author
