@@ -1,5 +1,9 @@
 # Changelog
 
+#### 2.0.11 - 28 February 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issues with certain menus overflowing out of the content.
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed approvebg chevron not matching the same background color.
+
 #### 2.0.10 - 24 February 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed issues navigations not wrapping correctly.
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed layout issues in the profile statistics area.
