@@ -1304,6 +1304,11 @@ a.moderation_link {
 			transform: skew(50deg, 0);
 			width: 50px;
 		}
+		&:is(.approvebg, .approvebg2) {
+			&::after, &::before {
+				background: var(--approve-bg);
+			}
+		}
 		&::after {
 			margin-block-start: 30px;
 		}
