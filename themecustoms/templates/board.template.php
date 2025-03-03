@@ -234,7 +234,7 @@ function board_children_dropdown(array $board, array $children) : void
 			<button class="button dropdown-toggle" type="button" id="subboards_dropdownb_', $board['id'], '" data-bs-toggle="dropdown" aria-expanded="false">
 				', $txt['sub_boards'], '
 			</button>
-			<div class="dropdown-menu dropdown-menu-end" aria-labelledby="subboards_dropdownb_', $board['id'], '">';
+			<div class="dropdown-menu" aria-labelledby="subboards_dropdownb_', $board['id'], '">';
 
 	// The child boards
 	foreach ($children as $child)
