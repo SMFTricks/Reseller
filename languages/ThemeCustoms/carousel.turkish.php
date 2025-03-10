@@ -10,7 +10,7 @@
 // Carousel
 $txt['st_carousel'] = 'Carousel Resimleri';
 $txt['st_enable_carousel'] = 'Carouseli etkinleştir';
-$txt['st_enable_carousel_desc'] = 'Daha fazla ayar görüntülemek için etkinleştirin. Carousel Eklentiniz varsa, bu ayar etkinleştirildiğinde aşağıda yükleme seçeneklerine sahip olacaksınız.';
+$txt['st_enable_carousel_desc'] = 'Bu, carousel tamamen devre dışı bırakmak veya etkinleştirmek için kullanılan genel bir ayardır.';
 $txt['st_carousel_index'] = 'Yalnızca ana sayfada görüntüle';
 $txt['st_carousel_enable_images'] = 'Carousel resimlerini etkinleştir';
 $txt['st_carousel_speed'] = 'Carousel otomatik oynatma hızı';
@@ -20,7 +20,7 @@ $txt['st_carousel_link_text_desc'] = 'Bağlantıda görüntülenecek metin. <spa
 $txt['st_carousel_go_to_link'] = 'Bağlantıya git';
 $txt['st_carousel_add_new'] = 'Yeni ekle';
 $txt['st_carousel_slides'] = 'Slayt sayısı';
-$txt['st_carousel_slides_desc'] = 'Carousel için slayt sayısını ayarlayın. 1-6 arası bir aralıkla sınırlıdır';
+$txt['st_carousel_slides_desc'] = 'Carousel için slayt sayısını ayarlayın. 1-5 arasında bir aralıkla sınırlandırın';
 $txt['st_carousel_bbc_allowed'] = 'Slaytlarınızda gülen yüzlerin yanı sıra [b], [i] ve [u] gibi BBC etiketlerine de izin verilir.';
 
 // Sliders
