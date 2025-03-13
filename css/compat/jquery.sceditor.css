@@ -234,7 +234,7 @@ body.sceditor-maximize {
 }
 .sceditor-dropdown:not(.sceditor-font-picker, .sceditor-fontsize-picker, .sceditor-format, .sceditor-color-picker) > div {
 	display: grid; 
-	grid-template-columns: 20em 20em;
+	grid-template-columns: 1fr 1fr;
 	gap: 0.5em;
 	padding: 0.5em;
 }
