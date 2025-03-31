@@ -312,7 +312,7 @@ details[open] summary {
 strong, .strong, .bold_text {
 	font-weight: 700;
 }
-strong, .strong {
+.strong {
 	color: var(--strong-color);
 }
 em, .em {
