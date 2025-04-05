@@ -59,6 +59,16 @@ function themecustoms_socials() : void
 		echo '
 		<a href="https://twitter.com/' . $settings['st_twitter'] . '" target="_blank" rel="noopener" class="twitter" aria-label="', $txt['st_twitter'], '">', themecustoms_icon('fa-brands fa-x-twitter'), '</a>';
 
+	// Threads
+	if (!empty($settings['st_threads']))
+		echo '
+		<a href="https://threads.net/' . $settings['st_threads'] . '" target="_blank" rel="noopener" class="threads" aria-label="', $txt['st_threads'], '">', themecustoms_icon('fa-brands fa-threads'), '</a>';
+
+	// BlueSky
+	if (!empty($settings['st_bluesky']))
+		echo '
+		<a href="https://bsky.app/profile/' . $settings['st_bluesky'] . '" target="_blank" rel="noopener" class="bluesky" aria-label="', $txt['st_bluesky'], '">', themecustoms_icon('fa-brands fa-bluesky'), '</a>';
+
 	// Instagram
 	if (!empty($settings['st_instagram']))
 		echo '

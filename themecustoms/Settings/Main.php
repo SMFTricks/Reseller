@@ -299,6 +299,20 @@ class Main
 				'theme_type' => 'social',
 			],
 			[
+				'id' => 'st_threads',
+				'label' => $txt['st_threads'],
+				'description' => $txt['st_social_desc'],
+				'type' => 'text',
+				'theme_type' => 'social',
+			],
+			[
+				'id' => 'st_bluesky',
+				'label' => $txt['st_bluesky'],
+				'description' => $txt['st_social_desc'],
+				'type' => 'text',
+				'theme_type' => 'social',
+			],
+			[
 				'id' => 'st_rss_url',
 				'label' => $txt['st_rss_url'],
 				'description' => sprintf($txt['st_rss_url_desc'], $scripturl) . '<br>' . $txt['st_social_desc'],

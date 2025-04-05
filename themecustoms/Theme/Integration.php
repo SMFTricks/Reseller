@@ -171,22 +171,23 @@ class Integration
 		global $context, $settings, $txt;
 
 		// Check for Ultimate Menu doing witchcraft?
-		if (!empty($current_action) && $current_action == 'admin' && isset($_REQUEST['area']) && $_REQUEST['area'] == 'umen')
+		if (!empty($current_action) && $current_action == 'admin' && isset($_REQUEST['area']) && $_REQUEST['area'] == 'umen') {
 			return;
+		}
 
 		// Remove elements?
 		$remove = !empty($settings['st_remove_items']) ? explode(',', $settings['st_remove_items']) : [];
 
 		$current_menu = $context['menu_buttons'];
-		foreach ($context['menu_buttons'] as $key => $button)
-		{
+		foreach ($context['menu_buttons'] as $key => $button) {
 			// Disable menu icons?
 			$current_menu[$key]['icon'] = (isset($settings['st_disable_menu_icons']) && !empty($settings['st_disable_menu_icons']) ? '' : '<span class="main_icons ' . $key . '"></span>');
 
 			// Remove the element if it's in the setting.
 			// Community shouldn't be removed
-			if (in_array($key, $remove) && $key !== 'community')
+			if (in_array($key, $remove) && $key !== 'community') {
 				unset($current_menu[$key]);
+			}
 		}
 		$context['menu_buttons'] = $current_menu;
 
@@ -204,25 +205,28 @@ class Integration
 		global $context, $settings;
 
 		// Is community enabled?
-		if (empty($settings['st_enable_community']))
+		if (empty($settings['st_enable_community'])) {
 			return;
+		}
 
 		// Alright, put into community those that are not outside?
 		$temp_menu = [];
-		foreach ($context['menu_buttons'] as $action => $button)
-		{
+		foreach ($context['menu_buttons'] as $action => $button) {
 			// Don't check for home, community or excluded items
-			if ($action == 'home' || $action == 'community' || (!empty($settings['st_not_community']) && in_array($action, explode(',', $settings['st_not_community']))))
+			if ($action == 'home' || $action == 'community' || (!empty($settings['st_not_community']) && in_array($action, explode(',', $settings['st_not_community'])))) {
 				$temp_menu[$action] = $button;
+			}
 			// Add the buttons?
-			elseif (!in_array($action, explode(',', $settings['st_not_community'])))
+			elseif (!in_array($action, explode(',', $settings['st_not_community']))) {
 				$temp_menu['community']['sub_buttons'][$action] = $button;
+			}
 		}
 		$context['menu_buttons'] = $temp_menu;
 
 		// Update the active button
-		if (isset($context['menu_buttons']['community']['sub_buttons'][$current_action]) && array_key_exists($current_action, $context['menu_buttons']['community']['sub_buttons']))
+		if (isset($context['menu_buttons']['community']['sub_buttons'][$current_action]) && array_key_exists($current_action, $context['menu_buttons']['community']['sub_buttons'])) {
 			$context['menu_buttons']['community']['active_button'] = true;
+		}
 	}
 
 	/**
@@ -264,7 +268,8 @@ class Integration
 		$settings['themecustoms_html_attributes'] = (!empty($settings['themecustoms_html']['attributes']) && is_array($settings['themecustoms_html']['attributes']) ? ' ' . implode(' ', $settings['themecustoms_html']['attributes']) : '');
 
 		// Disable the info center?
-		if (isset($settings['st_disable_info_center']) && !empty($settings['st_disable_info_center']) && !empty($context['info_center']))
+		if (isset($settings['st_disable_info_center']) && !empty($settings['st_disable_info_center']) && !empty($context['info_center'])) {
 			unset($context['info_center']);
+		}
 	}
 }

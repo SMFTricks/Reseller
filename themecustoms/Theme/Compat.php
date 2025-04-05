@@ -51,7 +51,6 @@ class Compat
 			loadCSSFile('compat/dark.css', ['order_pos' => 2, 'attributes' => (isset($context['theme_colormode']) && $context['theme_colormode'] == 'system' ? ['media' => '(prefers-color-scheme: dark)'] : [])], 'smf_dark');
 		}
 
-		
 		// Modify the URL and path of the files
 		foreach ($context['css_files'] as $id => $file) {
 			if (in_array($file['fileName'], $this->cssFiles)) {

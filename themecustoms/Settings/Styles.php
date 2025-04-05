@@ -31,6 +31,7 @@ class Styles
 	 */
 	private array $exclude = [
 		'custom_edits',
+		'theme_responsive'
 	];
 
 	/**
