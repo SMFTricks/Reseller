@@ -219,7 +219,7 @@ abstract class Init
 
 		// Add any custom attribute to the html tag
 		// This is useful for things like variants, dark mode, etc.
-		$settings['themecustoms_html_attributes'] = [];
+		$settings['themecustoms_html_attributes'] = '';
 
 		// Define the total amount of custom links to use.
 		$settings['st_custom_links_limit'] = $this->customLinks;
