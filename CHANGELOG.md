@@ -1,5 +1,9 @@
 # Changelog
 
+#### 2.0.13 - 09 April 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Hide undefined error for menu language string.
+- ![New Feature](https://smftricks.com/assets/changelog/tag--plus.png) Added Threads and BlueSky social options.
+
 #### 2.0.12 - 13 March 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed sizing issues with sceditor dropdowns.
 
