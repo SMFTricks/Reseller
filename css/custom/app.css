@@ -1542,6 +1542,12 @@ a.moderation_link {
 	&.linkedin {
 		background-color: hsl(210, 90%, var(--social-icon-light));
 	}
+	&.threads {
+		background-color: hsl(0, 0%, var(--social-icon-light));
+	}
+	&.bluesky {
+		background-color: hsl(211, 99%, var(--social-icon-light));
+	}
 	&.rss {
 		background-color: hsl(25, 85%, var(--social-icon-light));
 	}
