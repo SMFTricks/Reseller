@@ -26,7 +26,7 @@ function template_generic_menu_dropdown_above()
 	echo '
 	<nav id="genericmenu" class="navbar navbar-expand-lg" aria-label="', sprintf($txt['mobile_generic_menu'], $menu_label), '">
 		<a class="navbar-brand d-lg-none">', sprintf($txt['mobile_generic_menu'], $menu_label), '</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#genericNavbar" aria-controls="genericNavbar" aria-expanded="false" aria-label="', $txt['st_menu_toggle'], '">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#genericNavbar" aria-controls="genericNavbar" aria-expanded="false" aria-label="', $txt['st_menu_toggle'] ?? '', '">
 			<i class="fa fa-bars"></i>
 		</button>
 		', template_generic_menu($menu_context, $menu_label), '
