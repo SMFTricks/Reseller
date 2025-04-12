@@ -1145,7 +1145,7 @@ nav#mainNav {
 }
 
 /** Member List **/
-#mlist {
+#memberlist.main_section #mlist {
 	display: grid;
 	gap: .75em;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
