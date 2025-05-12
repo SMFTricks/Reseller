@@ -143,6 +143,7 @@ class Load
 				'js' => [
 					'file' => 'bootstrap.bundle',
 					'minified' => true,
+					'defer' => true,
 				],
 			],
 			// Coloris
