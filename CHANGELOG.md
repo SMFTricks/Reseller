@@ -1,5 +1,9 @@
 # Changelog
 
+#### 2.0.15 - 20 May 2025
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Added padding in textarea for posting in the sceditor.
+- ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Minor code changes to Theme Customs.
+
 #### 2.0.14 - 12 April 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed layout issues in Who's Online list.
 

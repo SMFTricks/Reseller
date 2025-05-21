@@ -5,3 +5,5 @@ css/custom/custom_edits.css
 .DS_Store
 .AppleDouble
 .LSOverride
+*.zip
+*.tar.gz
