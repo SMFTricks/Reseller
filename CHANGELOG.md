@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.0.16 - 02 June 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed news pager pushing main news content.
+
 #### 2.0.15 - 20 May 2025
 - ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Added padding in textarea for posting in the sceditor.
 - ![Improvement](https://smftricks.com/assets/changelog/tag--pencil.png) Minor code changes to Theme Customs.
