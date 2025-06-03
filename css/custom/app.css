@@ -1571,8 +1571,9 @@ header#header .content-wrapper {
 
 /** News Fader **/
 .news_section .sy-box {
+	--_pager-width: calc(var(--newsfader-pager-width) * 2);
 	align-items: flex-start;
-	grid-template-columns: 1fr auto;
+	grid-template-columns: 1fr var(--_pager-width);
 	padding-block: 0;
 
 	.sy-list {
@@ -1595,7 +1596,7 @@ header#header .content-wrapper {
 		}
 		li.sy-active {
 			transition: all ease-in-out 500ms;
-			width: calc(var(--newsfader-pager-width) * 2);
+			width: var(--_pager-width)
 		}
 	}
 }
