@@ -1599,6 +1599,14 @@ header#header .content-wrapper {
 			width: var(--_pager-width)
 		}
 	}
+	ul.sy-list {
+		li.sy-slide:not(.sy-active) {
+			visibility: hidden;
+		}
+		li.sy-slide.sy-active {
+			visibility: visible;
+		}
+	}
 }
 .news_section {
 	grid-template-columns: 1fr;
