@@ -1,5 +1,8 @@
 # Changelog
 
+#### 2.0.17 - 09 June 2025
+- ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed news fader issue with items visibility.
+
 #### 2.0.16 - 02 June 2025
 - ![Bug Fix](https://smftricks.com/assets/changelog/bug--minus.png) Fixed news pager pushing main news content.
 
