@@ -187,7 +187,7 @@ function template_unread()
 		echo '
 		<div class="pagesection">
 			<div class="pagelinks">
-				<a href="#recent" class="button">', $txt['go_up'], '</a>
+				<a href="#recent" class="button" id="bot">', $txt['go_up'], '</a>
 				', $context['page_index'], '
 			</div>
 			', !empty($context['recent_buttons']) ? template_button_strip($context['recent_buttons'], 'right') : '', '
@@ -323,7 +323,7 @@ function template_replies()
 			</div><!-- #unreadreplies -->
 			<div class="pagesection">
 				<div class="pagelinks floatleft">
-					<a href="#recent" class="button">', $txt['go_up'], '</a>
+					<a href="#recent" class="button" id="bot">', $txt['go_up'], '</a>
 					', $context['page_index'], '
 				</div>
 				', !empty($context['recent_buttons']) ? template_button_strip($context['recent_buttons'], 'right') : '', '
