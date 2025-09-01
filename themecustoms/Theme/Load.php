@@ -18,7 +18,7 @@ class Load
 	/**
 	 * @var const Font Awesome version
 	 */
-	const FONTAWESOME_VERSION = '6.7.2';
+	const FONTAWESOME_VERSION = '7.0.0';
 
 	/**
 	 * @var const jQuery UI version

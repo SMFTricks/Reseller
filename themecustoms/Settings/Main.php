@@ -144,7 +144,7 @@ class Main
 
 		/** Socials **/
 		$this->socials();
-		
+
 		/** Avatars **/
 		$this->avatars();
 

@@ -1695,7 +1695,7 @@ nav:where(#genericmenu, #adm_submenus) a:is(:focus, :focus-visible, :focus-withi
 	outline-offset: var(--buttonlist-link-outline-offset);
 }
 .buttonlist > li > :is(a, button).sub_buttons::after {
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 	content: "\f078";
 	font-size: 0.6em;
 	font-weight: 700;
@@ -2094,7 +2094,7 @@ h1.forumtitle span#siteslogan {
 	padding: .75em;
 }
 .navigate_section ul:before {
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 	content: "\f015";
 	font-size: 0.8em;
 	font-weight: 700;
@@ -2337,7 +2337,7 @@ h1.forumtitle span#siteslogan {
 	outline-offset: var(--quickbuttons-link-outline-offset);
 }
 .quickbuttons > li > a.sub_buttons::after {
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 	content: "\f078";
 	font-size: 0.6em;
 	font-weight: 700;
@@ -3358,7 +3358,7 @@ div#manage_boards dl dd textarea[name=desc] {
 }
 .board_icon a::before {
     display: inline;
-    font-family: "Font Awesome 6 Free";
+    font-family: "Font Awesome 7 Free";
     font-size: 2em;
     content: "\f086";
 	color: var(--body-link-color);
@@ -4705,7 +4705,7 @@ img.theme_thumbnail {
     background-color: transparent;
     content: "\f186";
     transition: .4s;
-    font-family: "Font Awesome 6 Free";
+    font-family: "Font Awesome 7 Free";
 	font-weight: 700;
 }
 
@@ -4720,7 +4720,7 @@ input:checked + .slider:before {
 input:checked + .slider:before {
 	content: "\f185";
 	font-weight: 700;
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 }
 
 /* Fade-in animation */

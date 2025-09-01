@@ -225,6 +225,48 @@ body.sceditor-maximize {
 .sceditor-maximize div.sceditor-grip {
 	display: none;
 }
+div.sceditor-smileyPopup, div.sceditor-dropdown {
+	background: var(--popup-window-bg);
+	background-clip: padding-box;
+	border-color: var(--popup-window-border-color);
+	border-radius: var(--popup-window-border-radius);
+	border-style: var(--popup-window-border-style);
+	border-width: var(--popup-window-border-width);
+	box-shadow: var(--popup-content-color);
+	color: var(--popup-color);
+	line-height: 1;
+	padding: .5em;
+	overflow-y: auto;
+	z-index: 4000;
+}
+
+div.sceditor-smileyPopup {
+	top: unset;
+	left: 0;
+	right: 0;
+	transform: unset;
+	position: absolute;
+	min-height: 100px;
+	min-width: 250px;
+	margin-inline: auto;
+	display: flex;
+	box-sizing: border-box;
+	max-height: 215px;
+	max-width: 450px;
+}
+div.sceditor-smileyPopup #sceditor-popup {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+div.sceditor-smileyPopup #sceditor-popup div#sceditor-popup-smiley {
+	align-self: flex-start;
+	flex-grow: 1;
+}
+div.sceditor-smileyPopup #sceditor-popup span.button {
+	align-self: center;
+	margin-top: .5em;
+}
 .sceditor-dropdown {
 	position: absolute;
 	border: 1px solid #ccc;
