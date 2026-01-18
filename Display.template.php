@@ -679,7 +679,7 @@ function template_single_post($message)
 					
 	echo '
 								<div class="postinfo">
-									<span class="messageicon" ', ($message['icon_url'] === $settings['images_url'] . '/post/xx.png' && !$message['can_modify']) ? ' style="position: absolute; z-index: -1;"' : '', '>
+									<span class="messageicon" ', ($message['icon_url'] === $settings['images_url'] . '/post/xx.png' && !$message['can_modify']) ? ' style="position: absolute; z-index: -1;"' : '', '></span>
 									<span class="date smalltext">
 										<a href="', $message['href'], '" rel="nofollow" title="', !empty($message['counter']) ? sprintf($txt['reply_number'], $message['counter'], ' - ') : '', $message['subject'], '">', $message['time'], '</a>
 									</span>';
@@ -695,10 +695,10 @@ function template_single_post($message)
 					
 	echo '
 									</span>
-							</div>
-							', !empty($message['counter']) ? '<span class="page_number">#' . $message['counter'] . '</span>' : '', '
-							<div id="msg_', $message['id'], '_quick_mod"', $ignoring ? ' style="display:none;"' : '', '></div>
-						</div><!-- .keyinfo -->';
+								</div>
+								', !empty($message['counter']) ? '<span class="page_number">#' . $message['counter'] . '</span>' : '', '
+								<div id="msg_', $message['id'], '_quick_mod"', $ignoring ? ' style="display:none;"' : '', '></div>
+							</div><!-- .keyinfo -->';
 
 	// Ignoring this user? Hide the post.
 	if ($ignoring)
